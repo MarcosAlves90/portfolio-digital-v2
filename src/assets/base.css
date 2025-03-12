@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Chicle&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+@font-face {
+  font-family: 'Gavency';
+  src: url('./fonts/gavency.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --color-background: #f2d6bd;
+  --color-highlight: #d44a49;
+  --color-text: #1b1a1a;
+  --color-grid: rgba(0, 0, 0, 0.1);
+  --color-section-background: #4a1818;
+  --color-second-background-secondary: #381212;
+
+  --header-title-animation: url("data:image/svg+xml,%3Csvg width='2250' height='900' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg%3E%3Cpath fill='%23ba3a39' d='M0 0h2255v899H0z'/%3E%3Ccircle cx='366' cy='207' r='366' fill='%23d44a49'/%3E%3Ccircle cx='1777.5' cy='318.5' r='477.5' fill='%23d44a49'/%3E%3Ccircle cx='1215' cy='737' r='366' fill='%23a32a29'/%3E%3C/g%3E%3C/svg%3E%0A");
+
+  --section-gap: 160px;
+  --common-border-radius: 5px;
+}
+
+[data-theme='dark'] {
+  --color-background: #1b1a1a;
+  --color-highlight: #2bb5b6;
+  --color-text: #f2d6bd;
+  --color-grid: rgba(255, 255, 255, 0.05);
+  --color-section-background: #0c2424;
+  --color-second-background-secondary: #103030;
+
+  --header-title-animation: url("data:image/svg+xml,%3Csvg width='2250' height='900' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg%3E%3Cpath fill='%23289e9a' d='M0 0h2255v899H0z'/%3E%3Ccircle cx='366' cy='207' r='366' fill='%2340b2b0'/%3E%3Ccircle cx='1777.5' cy='318.5' r='477.5' fill='%2340b2b0'/%3E%3Ccircle cx='1215' cy='737' r='366' fill='%231e7d7b'/%3E%3C/g%3E%3C/svg%3E%0A");
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  font-weight: normal;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--color-text);
+  background: var(--color-background);
+  line-height: 1.6;
+  transition: background-color 0.2s ease-in-out;
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Fira Sans',
+    'Droid Sans',
+    'Helvetica Neue',
+    'Poppins',
+    'Gavency',
+    sans-serif;
+  font-size: 15px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
