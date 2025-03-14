@@ -216,7 +216,6 @@ main {
   align-items: center;
   flex-direction: column;
   h1 {
-    margin-top: 6rem;
     font-size: 11rem;
     font-weight: 300;
     margin-bottom: 0;
