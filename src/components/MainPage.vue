@@ -9,7 +9,7 @@ const changePageIsOpen = inject('changePageIsOpen') as () => void;
 const scrollToSectionContent = (): void => {
   const section = document.querySelector('.section-content');
   if (section) {
-    const offset = 5 * parseFloat(getComputedStyle(document.documentElement).fontSize);
+    const offset = 4.9 * parseFloat(getComputedStyle(document.documentElement).fontSize);
     const sectionTop = section.getBoundingClientRect().top + window.scrollY - offset;
     window.scrollTo({
       top: sectionTop,
