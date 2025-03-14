@@ -206,6 +206,15 @@ main {
   font-family: 'Poppins', sans-serif;
 }
 
+@keyframes moveGrid {
+  0% {
+    background-position: 0 0, 0 0;
+  }
+  100% {
+    background-position: 0 100px, 0 100px;
+  }
+}
+
 .section-header {
   height: 100vh;
   background: linear-gradient(90deg, var(--color-grid) 2px, transparent 2px),
@@ -215,6 +224,9 @@ main {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  position: relative;
+  animation: moveGrid 3s linear infinite;
+
   h1 {
     font-size: 11rem;
     font-weight: 300;
@@ -265,6 +277,9 @@ main {
     &:active {
       transform: scale(0.9);
     }
+  }
+  h1, p, button {
+    z-index: 5;
   }
 
   @media (max-width: 950px) {
@@ -561,4 +576,5 @@ main {
   50% { background-position: 100% 50%; }
   100% { background-position: 0 50%; }
 }
+
 </style>
