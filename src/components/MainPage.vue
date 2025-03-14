@@ -310,6 +310,8 @@ main {
 
     .text-box {
       box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
 
       h1 {
         font-size: 3rem;
@@ -552,6 +554,12 @@ main {
             width: 100%;
             &.left {
               order: 2;
+              h1:first-child {
+                order: 1;
+              }
+              .inverted-box:first-of-type {
+                order: 2;
+              }
             }
             .inverted-box {
               width: 100%;
