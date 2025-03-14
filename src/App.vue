@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import NavBar from "@/components/NavBar.vue";
 import MainPage from "@/components/MainPage.vue";
+import Footer from "@/components/Footer.vue";
 import {provide, ref} from "vue";
 
 const theme = ref<string>('light');
@@ -12,11 +13,21 @@ const changeTheme = (): void => {
 };
 
 provide('changeTheme', changeTheme);
+
+const pageIsOpen = ref<boolean>(false);
+provide('pageIsOpen', pageIsOpen);
+
+const changePageIsOpen = (): void => {
+  pageIsOpen.value = !pageIsOpen.value;
+};
+
+provide('changePageIsOpen', changePageIsOpen);
 </script>
 
 <template>
   <NavBar/>
   <MainPage/>
+  <Footer/>
 </template>
 
 <style scoped>
