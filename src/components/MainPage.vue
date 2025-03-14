@@ -201,13 +201,13 @@ const handleButtonClick = (): void => {
 <style scoped>
 
 main {
-  padding: 8rem 0 0 0;
+  padding: 0;
   width: 100%;
   font-family: 'Poppins', sans-serif;
 }
 
 .section-header {
-  height: calc(100vh - 8rem);
+  height: 100vh;
   background: linear-gradient(90deg, var(--color-grid) 2px, transparent 2px),
   linear-gradient(var(--color-grid) 2px, transparent 2px) fixed;
   background-size: 100px 100px;
@@ -216,7 +216,7 @@ main {
   align-items: center;
   flex-direction: column;
   h1 {
-    margin-top: -8rem;
+    margin-top: 6rem;
     font-size: 11rem;
     font-weight: 300;
     margin-bottom: 0;
