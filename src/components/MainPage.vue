@@ -1,10 +1,27 @@
 <script setup lang="ts">
-import { ref, inject, nextTick } from "vue";
+import { ref, inject, nextTick, provide } from "vue";
 import ProgressBar from "@/components/ProgressBar.vue";
+import SlideShow from "@/components/SlideShow.vue";
+import ProjectCards from "@/components/ProjectCards.vue"
 
 const theme = inject('theme', ref('light'));
 const pageIsOpen = inject('pageIsOpen', ref(false));
 const changePageIsOpen = inject('changePageIsOpen') as () => void;
+const currentProject = ref<number>(0);
+
+const setCurrentProject = (index: number): void => {
+  currentProject.value = index;
+};
+
+const slideIndex = ref<number>(1);
+
+provide ('slideIndex', slideIndex);
+
+const setSlideIndex = (index: number): void => {
+  slideIndex.value = index;
+}
+
+provide ('setSlideIndex', setSlideIndex);
 
 const scrollToSectionContent = (): void => {
   const section = document.querySelector('.section-content');
@@ -24,6 +41,115 @@ const handleButtonClick = (): void => {
     scrollToSectionContent();
   });
 };
+
+const handleProjectClick = (index: number): void => {
+  setSlideIndex(1);
+  setCurrentProject(index);
+};
+
+const openLink = (url: string): void => {
+  window.open(url, '_blank');
+};
+
+const projects = ref<Array<{
+  name: string;
+  description: string;
+  smallDescription: string;
+  images: { src: string; caption: string; }[];
+  site?: string;
+  code?: string;
+}>>([
+  {
+    name: "MidNight",
+    description: "Um projeto de ficha online feito para o jogo de RPG de mesa virtual \"The Mental World\". " +
+        "O projeto utiliza tecnologias como HTML, CSS, JavaScript, MUI, React, Vite e Firebase para seu funcionamento e " +
+        "estilização. A ideia é que o usuário seja capaz de montar e editar sua ficha na plataforma, que será " +
+        "enviada em tempo real para o banco de dados.",
+    smallDescription: "Plataforma de fichas de RPG de mesa.",
+    images: [
+      { src: './midnight/image_1.png', caption: 'Página inicial' },
+      { src: './midnight/image_2.png', caption: 'Página de individual' },
+      { src: './midnight/image_3.png', caption: 'Página de características' },
+      { src: './midnight/image_4.png', caption: 'Página de status' },
+      { src: './midnight/image_5.png', caption: 'Página de skills' },
+      { src: './midnight/image_6.png', caption: 'Página de anotações' },
+      { src: './midnight/image_7.png', caption: 'Página de inventário' },
+      { src: './midnight/image_8.png', caption: 'Página de configurações' },
+      { src: './midnight/image_9.png', caption: 'Página de login' },
+    ],
+    site: "https://tmwcse.vercel.app/",
+    code: "https://github.com/MarcosAlves90/projetoRPG_TMW_Ficha/tree/develop",
+  },
+  {
+    name: "Bunchin",
+    description: "Imagine uma plataforma onde as empresas podem gerenciar funcionários, bater ponto e até corrigir eventuais erros de registro. Esse é o Bunchin, um site de ponto digital e gestão empresarial desenvolvido como parte do projeto interdisciplinar do segundo semestre da minha graduação.",
+    smallDescription: "Plataforma de ponto digital e gestão empresarial.",
+    images: [
+      { src: './bunchin/image_1.png', caption: 'Página inicial' },
+      { src: './bunchin/image_2.png', caption: 'Página de login' },
+    ],
+    code: "https://github.com/MarcosAlves90/bunchin/tree/main",
+  },
+  {
+    name: "Dicenders",
+    description: "O projeto Dicenders foi meu Trabalho de Conclusão de Curso na Etec Professora Maria Cristina " +
+        "Medeiros, onde cursei Informática para Internet. Ele consiste em uma plataforma que integra recursos " +
+        "de tabletop, ou seja, um aplicativo web para jogar RPG em formato virtual, com funcionalidades de uma " +
+        "rede social.",
+    smallDescription: "Tabletop virtual e rede social voltada à RPG.",
+    images: [
+      {src: "./dicenders/image_1.png", caption: "Página inicial"},
+      {src: "./dicenders/image_2.png", caption: "Página de cadastro"},
+    ],
+    site: "https://dicenders-ai8s.onrender.com/",
+    code: "https://github.com/Dicenders/DicendersSite",
+  },
+  {
+    name: "Além do Olhar",
+    description: "Plataforma online oficial que apresenta diversos trabalhos criativos de mulheres empreendedoras envolvidas no projeto “Além do Olhar”. Construída utilizando HTML, CSS, JavaScript e React, além de várias bibliotecas, como Bootstrap, Bootstrap Icons e Reactjs-popup.",
+    smallDescription: "Plataforma de divulgação de trabalhos criativos.",
+    images: [
+      { src: './alem_do_olhar/image_1.png', caption: 'Página inicial' },
+    ],
+    site: "https://alem-do-olhar.vercel.app/",
+    code: "https://github.com/MarcosAlves90/alem_do_olhar",
+  },
+  {
+    name: "Coconut Links",
+    description: "Construído com HTML, CSS, React e o módulo gh-pages do node, o Coconut Links reúne todos os meus links importantes (LinkedIn, GitHub, X (Twitter) e e-mail) com um design minimalista e agradável.",
+    smallDescription: "Página de links pessoais estilo Linktree.",
+    images: [
+      { src: './coconut_links/image_1.png', caption: 'Página inicial' },
+    ],
+    site: "https://marcosalves90.github.io/coconut_links/",
+    code: "https://github.com/MarcosAlves90/coconut_links",
+  },
+  {
+    name: "Antônia Fernandes",
+    description: "Site da Antônia Fernandes Store, uma loja online de moda feminina e acessórios, desenvolvido " +
+        "utilizando a plataforma Bagy. Além do editor padrão, personalizei grande parte das seções com HTML e " +
+        "CSS, e criei o logo e as imagens no Photoshop e Illustrator, garantindo um design único e alinhado " +
+        "à identidade da marca.",
+    smallDescription: "Loja online de moda feminina e acessórios.",
+    images: [
+      { src: './antonia_fernandes_store/imagem_1.png', caption: 'Página inicial' },
+      { src: './antonia_fernandes_store/imagem_2.png', caption: 'Página de produtos' },
+    ],
+    site: "https://www.antoniafernandestore.com.br/",
+  },
+  {
+    name: "Which Dog Are You?",
+    description: "Projeto final do curso FRAMEWORK VALLEY: REACT do Codédex. Desenvolvi um quiz de personalidade em React que identifica qual raça de cachorro você seria, com base em preferências pessoais. Utilizei React Router, Context API e sessionStorage para navegação e estado, além de uma API externa para exibir imagens das raças. O site é responsivo, com design amigável e transições suaves.",
+    smallDescription: "Quiz que indica qual seria sua raça de cachorro.",
+    images: [
+      { src: './which_dog_are_you/image_1.png', caption: 'Página inicial' },
+      { src: './which_dog_are_you/image_2.png', caption: 'Página de sobre' },
+    ],
+    site: "https://which-dog-are-you.vercel.app/",
+    code: "https://github.com/MarcosAlves90/personality_quiz"
+  }
+]);
+
 </script>
 
 <template>
@@ -194,6 +320,21 @@ const handleButtonClick = (): void => {
           </div>
         </div>
       </article>
+      <article class="dark-bg projects">
+        <div class="text-box viewer">
+          <div class="first-slice">
+            <h1>{{ projects[currentProject].name }}</h1>
+            <p>{{ projects[currentProject].description }}</p>
+            <div class="buttons-box">
+              <button v-if="projects[currentProject].site" class="click-button reversed" @click="openLink(projects[currentProject].site)">Verificar Site</button>
+              <button v-if="projects[currentProject].code" class="click-button" @click="openLink(projects[currentProject].code)">Código Fonte</button>
+            </div>
+          </div>
+          <h1 class="mobile-title">{{ projects[currentProject].name }}</h1>
+          <SlideShow :slides="projects[currentProject].images"/>
+        </div>
+        <ProjectCards :projects="projects" @setCurrentProject="handleProjectClick" />
+      </article>
     </section>
   </main>
 </template>
@@ -323,7 +464,6 @@ main {
       h1 {
         text-align: justify;
       }
-
     }
 
     .inverted-box {
@@ -539,6 +679,92 @@ main {
           }
         }
       }
+
+      &.projects {
+        padding: 7rem 2rem;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+
+        .text-box {
+          &.viewer {
+            display: flex;
+            gap: 4rem;
+            justify-content: center;
+            align-items: start;
+            width: 100%;
+            flex-direction: row;
+            max-width: 76rem;
+
+            .first-slice {
+              width: 100%;
+              display: flex;
+              flex-direction: column;
+              p {
+                margin-top: 1rem;
+              }
+              .buttons-box {
+                margin-top: 2rem;
+                gap: 1rem;
+                display: flex;
+                .click-button {
+                  background-color: #f2d6bd;
+                  outline: none;
+                  color: var(--color-highlight);
+                  border: none;
+                  padding: 0.7rem 1rem;
+                  font-size: 1rem;
+                  cursor: pointer;
+                  border-radius: var(--common-border-radius);
+                  width: 100%;
+                  font-family: "Poppins", serif;
+                  font-weight: 600;
+
+                  &.reversed {
+                    background-color: var(--color-highlight);
+                    color: #f2d6bd;
+                  }
+
+                  &:active {
+                    transform: scale(0.9);
+                  }
+                }
+              }
+            }
+            .mobile-title {
+              display: none;
+              width: 100%;
+              text-align: center;
+            }
+          }
+        }
+        @media (max-width: 950px) {
+          padding: 4rem 2rem;
+          .text-box.viewer {
+            flex-direction: column;
+            gap: 1rem;
+            .first-slice {
+              order: 3;
+              h1 {
+                display: none;
+              }
+              p {
+                margin: 0;
+              }
+              .buttons-box {
+                margin-top: 1rem;
+              }
+            }
+            .slideshow {
+              order: 2;
+            }
+            .mobile-title {
+              display: block;
+              order: 1;
+            }
+          }
+        }
+      }
     }
     &.light-bg {
       &.infos {
@@ -559,6 +785,7 @@ main {
               }
               .inverted-box:first-of-type {
                 order: 2;
+                margin: 0;
               }
             }
             .inverted-box {
