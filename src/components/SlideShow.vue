@@ -59,7 +59,7 @@ onUnmounted(() => {
         class="slide"
       >
         <img
-          :src="slide.src"
+          :src="slide.src || 'https://www.solidbackgrounds.com/images/1920x1080/1920x1080-gray-solid-color-background.jpg'"
           :alt="slide.caption || `Slide ${index + 1}`"
           loading="lazy"
           class="slide-image"

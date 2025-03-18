@@ -51,6 +51,9 @@ const emit = defineEmits(['setCurrentProject']);
       p {
         display: none;
       }
+      h2 {
+        font-size: 0.8rem;
+      }
     }
   }
 }

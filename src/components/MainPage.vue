@@ -468,6 +468,11 @@ main {
       h1 {
         text-align: justify;
       }
+      @media (max-width: 950px) {
+        h1 {
+          font-size: 1.9rem;
+        }
+      }
     }
 
     .inverted-box {
@@ -663,13 +668,14 @@ main {
         @media (max-width: 950px) {
           flex-direction: column;
           padding: 6rem 2rem 4rem 2rem;
+          gap: 2rem;
 
           h1 {
             text-align: center;
-            font-size: 2.5rem;
           }
 
           .text-box {
+            gap: 1rem;
             width: 100%;
             display: flex;
             align-items: center;
@@ -778,7 +784,6 @@ main {
           padding: 4rem 2rem;
           h1 {
             text-align: center;
-            font-size: 2.5rem;
           }
           .text-box {
             width: 100%;
