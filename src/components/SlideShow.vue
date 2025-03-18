@@ -67,7 +67,7 @@ onUnmounted(() => {
         <div
           v-if="slide.caption"
           class="text-overlay"
-          :style="{ width: '100%', bottom: '0', textAlign: 'center' }"
+          :style="{ bottom: '0', textAlign: 'center' }"
         >
           {{ slide.caption }}
         </div>
@@ -128,10 +128,13 @@ onUnmounted(() => {
   display: none;
   width: 640px;
   height: 360px;
+  box-sizing: border-box;
 }
 
 .slide.active {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .slide-image {
@@ -143,11 +146,12 @@ onUnmounted(() => {
 
 .text-overlay {
   color: #f2f2f2;
-  padding: 8px 12px;
+  padding: 4px 12px;
   position: absolute;
-  mix-blend-mode: difference;
   background: rgba(0, 0, 0, 0.3);
   box-sizing: border-box;
+  border-radius: var(--common-border-radius) var(--common-border-radius) 0 0;
+  backdrop-filter: blur(10px);
 }
 
 .navigation-button {
@@ -224,7 +228,7 @@ onUnmounted(() => {
   }
   .text-overlay {
     font-size: 2.5vw;
-    padding: 0.8rem;
+    padding: 0.4rem;
   }
 }
 </style>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { defineProps, defineEmits } from 'vue';
+import { defineEmits } from 'vue';
 
 const props = defineProps<{
   projects: Array<{ name: string; images: Array<{ src: string }>; smallDescription: string }>;
@@ -39,6 +39,19 @@ const emit = defineEmits(['setCurrentProject']);
 @media (max-width: 1350px) {
   .card-container {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 950px) {
+  .card-container {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+    .card-content {
+      padding: 0.3rem;
+      p {
+        display: none;
+      }
+    }
   }
 }
 

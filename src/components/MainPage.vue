@@ -95,11 +95,15 @@ const projects = ref<Array<{
     description: "O projeto Dicenders foi meu Trabalho de Conclusão de Curso na Etec Professora Maria Cristina " +
         "Medeiros, onde cursei Informática para Internet. Ele consiste em uma plataforma que integra recursos " +
         "de tabletop, ou seja, um aplicativo web para jogar RPG em formato virtual, com funcionalidades de uma " +
-        "rede social.",
+        "rede social. Foi feito utilizando HTML, CSS, JavaScript e Fabric.js para a plataforma, além de MongoDB, Node.js, " +
+        "Express.js, Moongose e Socket.io para o banco de dados e conexão.",
     smallDescription: "Tabletop virtual e rede social voltada à RPG.",
     images: [
-      {src: "./dicenders/image_1.png", caption: "Página inicial"},
+      {src: "./dicenders/image_1.png", caption: "Landing page"},
       {src: "./dicenders/image_2.png", caption: "Página de cadastro"},
+      {src: "./dicenders/image_3.png", caption: "Página inicial"},
+      {src: "./dicenders/image_4.png", caption: "Página da rede social"},
+      {src: "./dicenders/image_5.png", caption: "Página de mensagens"},
     ],
     site: "https://dicenders-ai8s.onrender.com/",
     code: "https://github.com/Dicenders/DicendersSite",
