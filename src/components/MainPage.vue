@@ -751,7 +751,7 @@ main {
           }
         }
         .observation {
-          opacity: 0.2;
+          opacity: 0.4;
         }
         @media (max-width: 950px) {
           padding: 4rem 2rem;
