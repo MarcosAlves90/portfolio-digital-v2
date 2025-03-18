@@ -198,7 +198,7 @@ const projects = ref<Array<{
             <ProgressBar :progress="8" />
             <p class="description">Meu idioma natal, nenhuma dificuldade</p>
             <p>Inglês</p>
-            <ProgressBar :progress="5" />
+            <ProgressBar :progress="6" />
             <p class="description">Eu entendo bem, mas minha conversação ainda pode melhorar</p>
           </div>
         </div>
@@ -337,6 +337,7 @@ const projects = ref<Array<{
           <h1 class="mobile-title">{{ projects[currentProject].name }}</h1>
           <SlideShow :slides="projects[currentProject].images"/>
         </div>
+        <p class="observation">Clique em um projeto para saber mais</p>
         <ProjectCards :projects="projects" @setCurrentProject="handleProjectClick" />
       </article>
     </section>
@@ -695,6 +696,7 @@ main {
         display: flex;
         flex-direction: column;
         box-sizing: border-box;
+        gap: 2rem;
 
         .text-box {
           &.viewer {
@@ -747,6 +749,9 @@ main {
               text-align: center;
             }
           }
+        }
+        .observation {
+          opacity: 0.2;
         }
         @media (max-width: 950px) {
           padding: 4rem 2rem;
