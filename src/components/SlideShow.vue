@@ -129,6 +129,7 @@ onUnmounted(() => {
   width: 640px;
   height: 360px;
   box-sizing: border-box;
+  aspect-ratio: 16 / 9;
 }
 
 .slide.active {
