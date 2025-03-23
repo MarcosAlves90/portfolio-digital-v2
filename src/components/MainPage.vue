@@ -1,12 +1,10 @@
 <script setup lang="ts">
-import { ref, inject, nextTick, provide } from "vue";
+import { ref, inject, provide } from "vue";
 import ProgressBar from "@/components/ProgressBar.vue";
 import SlideShow from "@/components/SlideShow.vue";
 import ProjectCards from "@/components/ProjectCards.vue"
 
 const theme = inject('theme', ref('light'));
-const pageIsOpen = inject('pageIsOpen', ref(false));
-const changePageIsOpen = inject('changePageIsOpen') as () => void;
 const currentProject = ref<number>(0);
 
 const setCurrentProject = (index: number): void => {
@@ -22,25 +20,6 @@ const setSlideIndex = (index: number): void => {
 }
 
 provide ('setSlideIndex', setSlideIndex);
-
-const scrollToSectionContent = (): void => {
-  const section = document.querySelector('.section-content');
-  if (section) {
-    const offset = 4.9 * parseFloat(getComputedStyle(document.documentElement).fontSize);
-    const sectionTop = section.getBoundingClientRect().top + window.scrollY - offset;
-    window.scrollTo({
-      top: sectionTop,
-      behavior: 'smooth'
-    });
-  }
-};
-
-const handleButtonClick = (): void => {
-  changePageIsOpen();
-  nextTick(() => {
-    scrollToSectionContent();
-  });
-};
 
 const handleProjectClick = (index: number): void => {
   setSlideIndex(1);
@@ -161,9 +140,8 @@ const projects = ref<Array<{
     <section class="section-header">
       <h1>Portfolio</h1>
       <p>Marcos Lopes | Desenvolvedor Full-Stack</p>
-      <button @click="handleButtonClick">{{ pageIsOpen ? "Fechar" : "Abrir" }}</button>
     </section>
-    <section :style="!pageIsOpen ? 'display: none' : 'display: block'" class="section-content">
+    <section class="section-content">
       <article class="dark-bg about">
         <div class="image-box">
           <img :src="theme === 'light' ? '/pilgrim.ciano.webp' : '/pilgrim.magenta.webp'" alt="Profile" loading="lazy" />
@@ -353,7 +331,7 @@ main {
 }
 
 .section-header {
-  height: 100vh;
+  height: 60rem;
   background: linear-gradient(90deg, var(--color-grid) 2px, transparent 2px),
   linear-gradient(var(--color-grid) 2px, transparent 2px) fixed;
   background-size: 100px 100px;
@@ -420,6 +398,7 @@ main {
   }
 
   @media (max-width: 950px) {
+    height: 55rem;
     background-size: 70px 70px;
     --common-font-size: 3.78vw;
     animation: moveGrid70px 3s linear infinite;
@@ -769,9 +748,6 @@ main {
               .buttons-box {
                 margin-top: 1rem;
               }
-            }
-            .slideshow {
-              order: 2;
             }
             .mobile-title {
               display: block;

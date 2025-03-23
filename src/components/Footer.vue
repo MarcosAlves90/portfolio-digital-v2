@@ -1,12 +1,9 @@
 <script setup lang="ts">
-import {inject, ref} from "vue";
-
-const pageIsOpen = inject('pageIsOpen', ref(false));
 
 </script>
 
 <template>
-  <footer :style="!pageIsOpen ? 'display: none' : 'display: block'">
+  <footer>
     <div class="footer-top">
       <div class="first-section">
         <h1 class="site-title">Portfolio</h1>

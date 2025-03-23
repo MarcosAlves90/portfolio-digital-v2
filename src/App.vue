@@ -13,15 +13,6 @@ const changeTheme = (): void => {
 };
 
 provide('changeTheme', changeTheme);
-
-const pageIsOpen = ref<boolean>(false);
-provide('pageIsOpen', pageIsOpen);
-
-const changePageIsOpen = (): void => {
-  pageIsOpen.value = !pageIsOpen.value;
-};
-
-provide('changePageIsOpen', changePageIsOpen);
 </script>
 
 <template>
