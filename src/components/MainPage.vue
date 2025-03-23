@@ -316,7 +316,7 @@ const projects = ref<Array<{
           <SlideShow :slides="projects[currentProject].images"/>
         </div>
         <p class="observation">Clique em um projeto para saber mais</p>
-        <ProjectCards :projects="projects" @setCurrentProject="handleProjectClick" />
+        <ProjectCards :projects="projects" :currentProject="currentProject" @setCurrentProject="handleProjectClick" />
       </article>
     </section>
   </main>

@@ -3,6 +3,7 @@ import { defineEmits } from 'vue';
 
 const props = defineProps<{
   projects: Array<{ name: string; images: Array<{ src: string }>; smallDescription: string }>;
+  currentProject: number;
 }>();
 
 const emit = defineEmits(['setCurrentProject']);
@@ -13,7 +14,7 @@ const emit = defineEmits(['setCurrentProject']);
     <div
       v-for="(project, index) in projects"
       :key="index"
-      class="card"
+      :class="currentProject === index ? 'card active' : 'card'"
       @click="$emit('setCurrentProject', index)"
     >
       <img :src="project.images[0].src" :alt="project.name" />
@@ -62,6 +63,11 @@ const emit = defineEmits(['setCurrentProject']);
   width: 100%;
   overflow: hidden;
   cursor: pointer;
+  padding: 0.5rem;
+  &.active {
+    background-color: var(--color-second-background-secondary);
+    border-radius: var(--common-border-radius);
+  }
 }
 
 .card:active {
