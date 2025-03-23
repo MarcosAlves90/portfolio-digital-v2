@@ -398,7 +398,7 @@ main {
   }
 
   @media (max-width: 950px) {
-    height: 55rem;
+    height: 45rem;
     background-size: 70px 70px;
     --common-font-size: 3.78vw;
     animation: moveGrid70px 3s linear infinite;
