@@ -201,7 +201,6 @@ onUnmounted(() => {
 }
 
 .dot:hover,
-.dot:focus,
 .dot[aria-current="true"] {
   background-color: rgba(var(--color-highlight-rgb), 1);
   outline: none;
