@@ -93,3 +93,16 @@ body {
   scrollbar-width: thin;
   scrollbar-color: var(--color-highlight) var(--color-text);
 }
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button, a, .click-button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:active, a:active, .click-button:active {
+  outline: none;
+  box-shadow: none;
+}

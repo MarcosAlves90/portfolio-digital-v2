@@ -200,7 +200,10 @@ onUnmounted(() => {
   transition: background-color 0.3s ease;
 }
 
-.dot:hover,
+.dot:hover {
+  background-color: rgba(var(--color-highlight-rgb), 0.6);
+}
+
 .dot[aria-current="true"] {
   background-color: rgba(var(--color-highlight-rgb), 1);
   outline: none;
