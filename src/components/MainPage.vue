@@ -27,7 +27,7 @@ const handleProjectClick = (index: number): void => {
 };
 
 const openLink = (url: string): void => {
-  window.open(url, '_blank');
+  window.open(url, '_blank', 'noopener,noreferrer');
 };
 
 const projects = ref<Array<{
