@@ -169,6 +169,14 @@ const projects = ref<Array<{
               <i class="bi bi-whatsapp"></i>
               <a href="https://wa.me/5511949273886" target="_blank" rel="noopener noreferrer">+55 (11) 94927-3886</a>
             </div>
+            <div class="contact-item">
+              <i class="bi bi-linkedin"></i>
+              <a href="https://www.linkedin.com/in/marcosalveslopesjunior" target="_blank" rel="noopener noreferrer">Marcos Lopes</a>
+            </div>
+            <div class="contact-item">
+              <i class="bi bi-github"></i>
+              <a href="https://github.com/MarcosAlves90" target="_blank" rel="noopener noreferrer">MarcosAlves90</a>
+            </div>
           </div>
           <h1>Idiomas</h1>
           <div class="inverted-box languages">
@@ -184,9 +192,9 @@ const projects = ref<Array<{
           <h1>Educação e Experiência</h1>
           <div class="inverted-box education">
             <ul>
-              <li><span>2022 - 2023</span> Técnico em Informática para Internet</li>
-              <li><span>2024 - 2026</span> Tecnólogo em Desenvolvimento de Software Multiplataforma</li>
-              <li><span>2024 - ....</span> Fazendo freelances e criando projetos pessoais e acadêmicos</li>
+              <li><span>2022 - 2023</span><p>{Técnico em Informática para Internet}</p></li>
+              <li><span>2024 - 2026</span><p>{Tecnólogo em Desenvolvimento de Software Multiplataforma}</p></li>
+              <li><span>2024 - ....</span><p>{Fazendo freelances e criando projetos pessoais e acadêmicos}</p></li>
             </ul>
           </div>
           <h1>Habilidades</h1>
@@ -520,6 +528,7 @@ main {
         ul {
           list-style-type: none;
           padding: 0;
+          width: 100%;
         }
 
         li::before {
@@ -537,7 +546,11 @@ main {
           display: flex;
           align-items: center;
           justify-content: start;
-          font-weight: 600;
+          flex-wrap: wrap;
+
+          p {
+            font-weight: 600;
+          }
 
           &:last-child {
             margin-bottom: 0;
@@ -547,6 +560,19 @@ main {
         li span {
           margin-right: 1rem;
           width: 6rem;
+        }
+
+        @media (max-width: 1350px) {
+          li {
+            p {
+              width: 100%;
+            }
+          }
+        }
+        @media (max-width: 950px) {
+          li {
+            margin-bottom: 2rem;
+          }
         }
       }
 

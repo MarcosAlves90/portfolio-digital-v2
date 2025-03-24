@@ -42,6 +42,12 @@
             <a href="mailto:marcos.a.lopes7701@gmail.com" target="_blank" rel="noopener noreferrer">
               <i class="bi bi-envelope-paper"></i>
             </a>
+            <a href="https://www.linkedin.com/in/marcosalveslopesjunior" target="_blank" rel="noopener noreferrer" class="contact-item">
+              <i class="bi bi-linkedin"></i>
+            </a>
+            <a href="https://github.com/MarcosAlves90" target="_blank" rel="noopener noreferrer" class="contact-item">
+              <i class="bi bi-github"></i>
+            </a>
           </div>
         </div>
       </div>
