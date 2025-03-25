@@ -7,7 +7,7 @@
     <div class="footer-top">
       <div class="first-section">
         <h1 class="site-title">Portfolio</h1>
-        <p class="description">Desenvolvedor full-stack, designer gráfico e escritor, sempre disposto a encarar desafios e criar soluções inovadoras.</p>
+        <p class="description">{{  $t('message.footerIntro') }}</p>
       </div>
       <div class="banner-section">
         <svg id="Camada_2" data-name="Camada 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 610.02 610.02">
@@ -20,17 +20,17 @@
       <div class="sections-group">
         <div class="second-section">
           <h2 class="common-title">Menu</h2>
-          <a href="#inicio">Início</a>
-          <a href="#sobre">Sobre</a>
-          <a href="#projects">Projetos</a>
-          <a href="#contact">Contato</a>
+          <a href="#inicio">{{ $t('message.menu[0]') }}</a>
+          <a href="#sobre">{{ $t('message.menu[1]') }}</a>
+          <a href="#contact">{{ $t('message.menu[2]') }}</a>
+          <a href="#projects">{{ $t('message.menu[3]') }}</a>
         </div>
         <div class="last-section">
-          <h2 class="common-title">Contato</h2>
+          <h2 class="common-title">{{ $t('message.contact') }}</h2>
           <div class="contact-info">
-            <p>Marcos Lopes | Desenvolvedor Full-Stack</p>
+            <p>Marcos Lopes | {{ $t('message.developer') }}</p>
             <p>Email: marcos.a.lopes7701@gmail.com</p>
-            <p>Telefone: +55 (11) 94927-3886</p>
+            <p>WhatsApp: +55 (11) 94927-3886</p>
           </div>
           <div class="social-links">
             <a href="https://www.instagram.com/marcos.pilgrim" target="_blank" rel="noopener noreferrer">
@@ -53,7 +53,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2025 Marcos Lopes. Todos os direitos reservados.</p>
+      <p>&copy; 2025 Marcos Lopes. {{ $t('message.rights') }}</p>
     </div>
   </footer>
 </template>
