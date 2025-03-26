@@ -67,6 +67,7 @@ const projects = ref<Array<{
       { src: './bunchin/image_1.png', caption: 'message.bunchinCaptions[0]' },
       { src: './bunchin/image_2.png', caption: 'message.bunchinCaptions[1]' },
     ],
+    site: "https://bunchin-project.onrender.com",
     code: "https://github.com/MarcosAlves90/bunchin/tree/main",
   },
   {
