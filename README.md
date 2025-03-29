@@ -16,6 +16,6 @@
 
 The project is still under development and the next updates will focus on the following tasks:
 
-- [ ] Add favicon
+- [x] Add favicon
 - [ ] Add image to footer banner
-- [ ] Leave the header with a defined height and no button
+- [x] Leave the header with a defined height and no button

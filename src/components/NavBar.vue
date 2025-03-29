@@ -53,6 +53,12 @@ const toggleLanguage = (): void => {
   locale.value = locale.value === 'en' ? 'pt' : 'en';
 };
 
+const handleResize = (): void => {
+  if (window.innerWidth > 950) {
+    buttonsBoxVisible.value = false;
+  }
+};
+
 onMounted((): void => {
   const savedTheme: string = localStorage.getItem('theme') || 'light';
   theme.value = savedTheme;
@@ -60,13 +66,6 @@ onMounted((): void => {
 
   setInterval(updateText, 2000);
   window.addEventListener('scroll', handleScroll);
-
-  const handleResize = (): void => {
-    if (window.innerWidth > 950) {
-      buttonsBoxVisible.value = false;
-    }
-  };
-
   window.addEventListener('resize', handleResize);
   handleResize();
 });
