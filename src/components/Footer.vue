@@ -28,6 +28,7 @@ const handleSmoothScroll = (event: Event) => {
             <path class="cls-1" d="M305.01,610.02h0C305.01,441.57,168.45,305.01,0,305.01H0C168.45,305.01,305.01,168.45,305.01,0h0c0,168.45,136.56,305.01,305.01,305.01h0c-168.45,0-305.01,136.56-305.01,305.01Z"/>
           </g>
         </svg>
+        <!-- <img src="/footer_banner_sun.png"/> -->
         <div class="content-box"></div>
       </div>
       <div class="sections-group">
@@ -135,6 +136,13 @@ footer {
         width: 90%;
         opacity: 0.2;
       }
+
+      /* img {
+        object-fit: cover;
+        object-position: center center;
+        width: 100%;
+        height: 100%;
+      } */
 
       .content-box {
         padding: calc(var(--common-gap)) calc(var(--common-gap) * 2) 0 0;
