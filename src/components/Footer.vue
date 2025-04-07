@@ -1,5 +1,18 @@
 <script setup lang="ts">
+const handleSmoothScroll = (event: Event) => {
+  event.preventDefault();
+  const targetId = (event.target as HTMLAnchorElement).getAttribute('href')?.substring(1);
+  const targetElement = document.getElementById(targetId || '');
+  if (targetElement) {
+    const offset = 79;
+    const offsetPosition = targetElement.offsetTop - offset;
 
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth',
+    });
+  }
+};
 </script>
 
 <template>
@@ -20,10 +33,10 @@
       <div class="sections-group">
         <div class="second-section">
           <h2 class="common-title">Menu</h2>
-          <a href="#inicio">{{ $t('message.menu[0]') }}</a>
-          <a href="#sobre">{{ $t('message.menu[1]') }}</a>
-          <a href="#contact">{{ $t('message.menu[2]') }}</a>
-          <a href="#projects">{{ $t('message.menu[3]') }}</a>
+          <a href="#home" @click="handleSmoothScroll">{{ $t('message.menu[0]') }}</a>
+          <a href="#about" @click="handleSmoothScroll">{{ $t('message.menu[1]') }}</a>
+          <a href="#contact" @click="handleSmoothScroll">{{ $t('message.menu[2]') }}</a>
+          <a href="#projects" @click="handleSmoothScroll">{{ $t('message.menu[3]') }}</a>
         </div>
         <div class="last-section">
           <h2 class="common-title">{{ $t('message.contact') }}</h2>

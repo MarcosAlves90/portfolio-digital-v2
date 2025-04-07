@@ -143,11 +143,11 @@ const translatedProjects = computed(() => {
 
 <template>
   <main>
-    <section class="section-header">
+    <section class="section-header" id="home">
       <h1>Portfolio</h1>
       <p>Marcos Lopes | {{ $t('message.developer') }}</p>
     </section>
-    <section class="section-content">
+    <section class="section-content" id="about">
       <article class="dark-bg about">
         <div class="image-box">
           <img :src="theme === 'light' ? '/pilgrim.ciano.webp' : '/pilgrim.magenta.webp'" alt="Profile"
@@ -160,7 +160,7 @@ const translatedProjects = computed(() => {
           </p>
         </div>
       </article>
-      <article class="light-bg infos">
+      <article class="light-bg infos" id="contact">
         <div class="text-box left">
           <h1>{{ $t('message.contactsTitle') }}</h1>
           <div class="inverted-box contacts">
@@ -368,7 +368,7 @@ const translatedProjects = computed(() => {
           </div>
         </div>
       </article>
-      <article class="dark-bg projects">
+      <article class="dark-bg projects" id="projects">
         <div class="text-box viewer">
           <div class="first-slice">
             <h1>{{ translatedProjects[currentProject].name }}</h1>
