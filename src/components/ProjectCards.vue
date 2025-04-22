@@ -34,6 +34,7 @@ onUnmounted(() => {
         updateOnMove: true,
         pagination: true,
         gap: '0.5rem',
+        autoplay: true,
     }" aria-label="Destaques da equipe">
       <SplideSlide v-for="(project, index) in projects" :key="index">
         <div :class="currentProject === index ? 'project-cards__card project-cards__card--active' : 'project-cards__card'" @click="$emit('setCurrentProject', index)">
