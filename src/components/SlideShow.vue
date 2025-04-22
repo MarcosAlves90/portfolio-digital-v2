@@ -13,7 +13,7 @@ const props = defineProps<{
 const slideIndex = inject('slideIndex', ref(1));
 const setSlideIndex = inject('setSlideIndex', (index: number) => {});
 
-const intervalRef = ref<number | null>(null);
+const intervalRef = ref<ReturnType<typeof setInterval> | null>(null);
 const totalSlides = computed(() => props.slides.length);
 
 const nextSlide = () => {
