@@ -77,5 +77,15 @@ export default [
     ],
     site: "https://which-dog-are-you.vercel.app/",
     code: "https://github.com/MarcosAlves90/personality_quiz"
+  },
+  {
+    name: "Mediari Consultoria",
+    smallDescription: 'message.mediariConsultoriaSmallDescription',
+    images: [
+      { src: './mediari_consultoria/image_1.png' },
+      { src: './mediari_consultoria/image_2.png' },
+    ],
+    site: "https://mediari-consultoria.netlify.app/",
+    code: "https://github.com/MarcosAlves90/mediari-consultoria"
   }
 ];

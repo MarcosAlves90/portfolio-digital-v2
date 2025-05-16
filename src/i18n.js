@@ -40,6 +40,8 @@ const messages = {
             antoniaFernandesSmallDescription: "Online store for women's fashion and accessories.",
             // projetos - Which Dog Are You?
             whichDogAreYouSmallDescription: 'Quiz to find out what breed of dog you are.',
+            // projetos - Mediari Consultoria
+            mediariConsultoriaSmallDescription: 'Mediari Consultoria landing page developed with Nuxt.',
             // footer
             footerIntro: 'Full-stack developer, graphic designer and writer, always willing to face challenges and create innovative solutions.',
             rights: 'All rights reserved.',
@@ -100,48 +102,17 @@ const messages = {
                 'Página de login'
             ],
             // projetos - Dicenders
-            dicendersDescription: "O projeto Dicenders foi meu Trabalho de Conclusão de Curso na Etec Professora Maria Cristina " +
-                "Medeiros, onde cursei Informática para Internet. Ele consiste em uma plataforma que integra recursos " +
-                "de tabletop, ou seja, um aplicativo web para jogar RPG em formato virtual, com funcionalidades de uma " +
-                "rede social. Foi feito utilizando HTML, CSS, JavaScript e Fabric.js para a plataforma, além de MongoDB, Node.js, " +
-                "Express.js, Moongose e Socket.io para o banco de dados e conexão.",
             dicendersSmallDescription: "Tabletop virtual e rede social voltada à RPG.",
-            dicendersCaptions: [
-                "Landing page",
-                "Página de cadastro",
-                "Página inicial",
-                "Página da rede social",
-                "Página de mensagens"
-            ],
             // projetos - Além do Olhar
-            alemDoOlharDescription: 'Plataforma online oficial que apresenta diversos trabalhos criativos de mulheres empreendedoras envolvidas no projeto “Além do Olhar”. Construída utilizando HTML, CSS, JavaScript e React, além de várias bibliotecas, como Bootstrap, Bootstrap Icons e Reactjs-popup.',
             alemDoOlharSmallDescription: 'Plataforma de divulgação de trabalhos criativos.',
-            alemDoOlharCaptions: [
-                "Página inicial",
-            ],
             // projetos - CoconutLinks
-            coconutLinksDescription: 'Construído com HTML, CSS, React e o módulo gh-pages do node, o Coconut Links reúne todos os meus links importantes (LinkedIn, GitHub, X (Twitter) e e-mail) com um design minimalista e agradável.',
             coconutLinksSmallDescription: 'Página de links pessoais estilo Linktree.',
-            coconutLinksCaptions: [
-                'Página inicial',
-            ],
             // projetos - Antônia Fernandes
-            antoniaFernandesDescription: "Site da Antônia Fernandes Store, uma loja online de moda feminina e acessórios, desenvolvido " +
-                "utilizando a plataforma Bagy. Além do editor padrão, personalizei grande parte das seções com HTML e " +
-                "CSS, e criei o logo e as imagens no Photoshop e Illustrator, garantindo um design único e alinhado " +
-                "à identidade da marca.",
             antoniaFernandesSmallDescription: 'Loja online de moda feminina e acessórios.',
-            antoniaFernandesCaptions: [
-                "Página inicial",
-                "Página de produtos"
-            ],
             // projetos - Which Dog Are You?
-            whichDogAreYouDescription: 'Projeto final do curso FRAMEWORK VALLEY: REACT do Codédex. Desenvolvi um quiz de personalidade em React que identifica qual raça de cachorro você seria, com base em preferências pessoais. Utilizei React Router, Context API e sessionStorage para navegação e estado, além de uma API externa para exibir imagens das raças. O site é responsivo, com design amigável e transições suaves.',
             whichDogAreYouSmallDescription: 'Quiz que indica qual seria sua raça de cachorro.',
-            whichDogAreYouCaptions: [
-                'Página inicial',
-                'Página de sobre',
-            ],
+            // projetos - Mediari Consultoria
+            mediariConsultoriaSmallDescription: 'Landing page da Mediari Consultoria desenvolvida com Nuxt.',
             // footer
             footerIntro: 'Desenvolvedor full-stack, designer gráfico e escritor, sempre disposto a encarar desafios e criar soluções inovadoras.',
             rights: 'Todos os direitos reservados.',
