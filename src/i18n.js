@@ -27,65 +27,19 @@ const messages = {
             verifyWebsite: 'Check Website',
             sourceCode: 'Source Code',
             // projetos - MidNight
-            midnightDescription: 'An online character sheet project made for the virtual tabletop RPG game "The Mental World". The project uses technologies such as HTML, CSS, JavaScript, MUI, React, Vite, and Firebase for its functionality and styling. The idea is that the user can create and edit their sheet on the platform, which will be sent in real-time to the database.',
             midnightSmallDescription: 'Tabletop RPG character sheet platform.',
-            midnightCaptions: [
-                'Home page',
-                'Individual page',
-                'Characteristics page',
-                'Status page',
-                'Skills page',
-                'Notes page',
-                'Inventory page',
-                'Settings page',
-                'Login page'
-            ],
             // projetos - Bunchin
-            bunchinDescription: 'Imagine a platform where companies can manage employees, clock in and even correct any errors in their records. This is Bunchin, a digital timekeeping and business management website developed as part of an interdisciplinary project for the second semester of my undergraduate degree.',
             bunchinSmallDescription: 'Digital time clock and business management platform.',
-            bunchinCaptions: [
-                'Home page',
-                'Login page'
-            ],
             // projetos - Dicenders
-            dicendersDescription: "The Dicenders project was my final project at Etec Professora Maria Cristina " +
-                "Medeiros, where I studied Internet Computing. It consists of a platform that integrates tabletop resources" +
-                "that is, a web application for playing RPG in a virtual format, with the functionalities of a social network. It was made using HTML, CSS, JavaScript and Fabric.js for the platform, in addition to MongoDB, Node.js, " +
-                "Express.js, Moongose ​​and Socket.io for the database and connection.",
             dicendersSmallDescription: "Virtual tabletop and social network focused on RPG.",
-            dicendersCaptions: [
-                "Landing page",
-                "Registration page",
-                "Home page",
-                "Social network page",
-                "Messages page"
-            ],
             // projetos - Além do Olhar
-            alemDoOlharDescription: 'Official online platform that presents various creative works by women entrepreneurs involved in the “Além do Olhar” project. Built using HTML, CSS, JavaScript and React, as well as several libraries, such as Bootstrap, Bootstrap Icons and Reactjs-popup.',
             alemDoOlharSmallDescription: 'Platform for the dissemination of creative works.',
-            alemDoOlharCaptions: [
-                "Home page",
-            ],
             // projetos - CoconutLinks
-            coconutLinksDescription: 'Built with HTML, CSS, React and node\'s gh-pages module, Coconut Links brings together all my important links (LinkedIn, GitHub, X (Twitter) and e-mail) in a minimalist and pleasant design.',
             coconutLinksSmallDescription: 'Linktree-style personal links page.',
-            coconutLinksCaptions: [
-                'Home page',
-            ],
             // projetos - Antônia Fernandes
-            antoniaFernandesDescription: "Site for Antônia Fernandes Store, an online store for women's fashion and accessories, developed using the Bagy platform. In addition to the standard editor, I customized a large part of the sections with HTML and CSS, and created the logo and images in Photoshop and Illustrator, ensuring a unique design aligned with the brand's identity.",
             antoniaFernandesSmallDescription: "Online store for women's fashion and accessories.",
-            antoniaFernandesCaptions: [
-                "Home page",
-                "Products page"
-            ],
             // projetos - Which Dog Are You?
-            whichDogAreYouDescription: 'Final project for the FRAMEWORK VALLEY: REACT course at Codédex. I developed a personality quiz in React that identifies which breed of dog you would be, based on personal preferences. I used React Router, Context API and sessionStorage for navigation and status, as well as an external API to display images of the breeds. The site is responsive, with a user-friendly design and smooth transitions.',
             whichDogAreYouSmallDescription: 'Quiz to find out what breed of dog you are.',
-            whichDogAreYouCaptions: [
-                'Home page',
-                'About page',
-            ],
             // footer
             footerIntro: 'Full-stack developer, graphic designer and writer, always willing to face challenges and create innovative solutions.',
             rights: 'All rights reserved.',

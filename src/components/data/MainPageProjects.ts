@@ -1,0 +1,81 @@
+// Este arquivo exporta o array de projetos para uso em MainPage.vue
+export default [
+  {
+    name: "MidNight",
+    smallDescription: 'message.midnightSmallDescription',
+    images: [
+      { src: './midnight/image_1.png' },
+      { src: './midnight/image_2.png' },
+      { src: './midnight/image_3.png' },
+      { src: './midnight/image_4.png' },
+      { src: './midnight/image_5.png' },
+      { src: './midnight/image_6.png' },
+      { src: './midnight/image_7.png' },
+      { src: './midnight/image_8.png' },
+      { src: './midnight/image_9.png' },
+    ],
+    site: "https://tmwcse.vercel.app/",
+    code: "https://github.com/MarcosAlves90/projetoRPG_TMW_Ficha/tree/develop",
+  },
+  {
+    name: "Bunchin",
+    smallDescription: 'message.bunchinSmallDescription',
+    images: [
+      { src: './bunchin/image_1.png' },
+      { src: './bunchin/image_2.png' },
+    ],
+    site: "https://bunchin-project.onrender.com",
+    code: "https://github.com/MarcosAlves90/bunchin",
+  },
+  {
+    name: "Dicenders",
+    smallDescription: 'message.dicendersSmallDescription',
+    images: [
+      { src: "./dicenders/image_1.png" },
+      { src: "./dicenders/image_2.png" },
+      { src: "./dicenders/image_3.png" },
+      { src: "./dicenders/image_4.png" },
+      { src: "./dicenders/image_5.png" },
+    ],
+    site: "https://dicenders-ai8s.onrender.com/",
+    code: "https://github.com/Dicenders/DicendersSite",
+  },
+  {
+    name: "Além do Olhar",
+    smallDescription: 'message.alemDoOlharSmallDescription',
+    images: [
+      { src: './alem_do_olhar/image_1.png' },
+    ],
+    site: "https://alem-do-olhar.vercel.app/",
+    code: "https://github.com/MarcosAlves90/alem_do_olhar",
+  },
+  {
+    name: "Coconut Links",
+    smallDescription: "message.coconutLinksSmallDescription",
+    images: [
+      { src: './coconut_links/image_1.png' },
+    ],
+    site: "https://marcosalves90.github.io/coconut_links/",
+    code: "https://github.com/MarcosAlves90/coconut_links",
+  },
+  {
+    name: "Antônia Fernandes",
+    smallDescription: 'message.antoniaFernandesSmallDescription',
+    images: [
+      { src: './antonia_fernandes_store/imagem_1.png' },
+      { src: './antonia_fernandes_store/imagem_2.png' },
+    ],
+    site: "https://www.antoniafernandestore.com.br/",
+    code: "",
+  },
+  {
+    name: "Which Dog Are You?",
+    smallDescription: 'message.whichDogAreYouSmallDescription',
+    images: [
+      { src: './which_dog_are_you/image_1.png' },
+      { src: './which_dog_are_you/image_2.png' },
+    ],
+    site: "https://which-dog-are-you.vercel.app/",
+    code: "https://github.com/MarcosAlves90/personality_quiz"
+  }
+];

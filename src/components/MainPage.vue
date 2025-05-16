@@ -1,152 +1,23 @@
 <script setup lang="ts">
-import { ref, inject, provide, computed } from "vue";
-import { useI18n } from 'vue-i18n';
+import { ref, inject, onMounted } from "vue";
 import ProgressBar from "@/components/ProgressBar.vue";
-import SlideShow from "@/components/SlideShow.vue";
 import ProjectCards from "@/components/ProjectCards.vue"
-import { motion } from 'motion-v';
-
-const { t } = useI18n();
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const theme = inject('theme', ref('light'));
-const currentProject = ref<number>(0);
 
-const setCurrentProject = (index: number): void => {
-  currentProject.value = index;
-};
-
-const slideIndex = ref<number>(1);
-
-provide('slideIndex', slideIndex);
-
-const setSlideIndex = (index: number): void => {
-  slideIndex.value = index;
-}
-
-provide('setSlideIndex', setSlideIndex);
-
-const handleProjectClick = (index: number): void => {
-  setSlideIndex(1);
-  setCurrentProject(index);
-};
-
-const openLink = (url: string): void => {
-  window.open(url, '_blank', 'noopener,noreferrer');
-};
-
-const projects = ref<Array<{
-  name: string;
-  description: string;
-  smallDescription: string;
-  images: { src: string; caption: string; }[];
-  site?: string;
-  code?: string;
-}>>([
-  {
-    name: "MidNight",
-    description: 'message.midnightDescription',
-    smallDescription: 'message.midnightSmallDescription',
-    images: [
-      { src: './midnight/image_1.png', caption: 'message.midnightCaptions[0]' },
-      { src: './midnight/image_2.png', caption: 'message.midnightCaptions[1]' },
-      { src: './midnight/image_3.png', caption: 'message.midnightCaptions[2]' },
-      { src: './midnight/image_4.png', caption: 'message.midnightCaptions[3]' },
-      { src: './midnight/image_5.png', caption: 'message.midnightCaptions[4]' },
-      { src: './midnight/image_6.png', caption: 'message.midnightCaptions[5]' },
-      { src: './midnight/image_7.png', caption: 'message.midnightCaptions[6]' },
-      { src: './midnight/image_8.png', caption: 'message.midnightCaptions[7]' },
-      { src: './midnight/image_9.png', caption: 'message.midnightCaptions[8]' },
-    ],
-    site: "https://tmwcse.vercel.app/",
-    code: "https://github.com/MarcosAlves90/projetoRPG_TMW_Ficha/tree/develop",
-  },
-  {
-    name: "Bunchin",
-    description: 'message.bunchinDescription',
-    smallDescription: 'message.bunchinSmallDescription',
-    images: [
-      { src: './bunchin/image_1.png', caption: 'message.bunchinCaptions[0]' },
-      { src: './bunchin/image_2.png', caption: 'message.bunchinCaptions[1]' },
-    ],
-    site: "https://bunchin-project.onrender.com",
-    code: "https://github.com/MarcosAlves90/bunchin",
-  },
-  {
-    name: "Dicenders",
-    description: 'message.dicendersDescription',
-    smallDescription: 'message.dicendersSmallDescription',
-    images: [
-      { src: "./dicenders/image_1.png", caption: 'message.dicendersCaptions[0]' },
-      { src: "./dicenders/image_2.png", caption: 'message.dicendersCaptions[1]' },
-      { src: "./dicenders/image_3.png", caption: 'message.dicendersCaptions[2]' },
-      { src: "./dicenders/image_4.png", caption: 'message.dicendersCaptions[3]' },
-      { src: "./dicenders/image_5.png", caption: 'message.dicendersCaptions[4]' },
-    ],
-    site: "https://dicenders-ai8s.onrender.com/",
-    code: "https://github.com/Dicenders/DicendersSite",
-  },
-  {
-    name: "Além do Olhar",
-    description: 'message.alemDoOlharDescription',
-    smallDescription: 'message.alemDoOlharSmallDescription',
-    images: [
-      { src: './alem_do_olhar/image_1.png', caption: 'message.alemDoOlharCaptions[0]' },
-    ],
-    site: "https://alem-do-olhar.vercel.app/",
-    code: "https://github.com/MarcosAlves90/alem_do_olhar",
-  },
-  {
-    name: "Coconut Links",
-    description: 'message.coconutLinksDescription',
-    smallDescription: "message.coconutLinksSmallDescription",
-    images: [
-      { src: './coconut_links/image_1.png', caption: 'message.coconutLinksCaptions[0]' },
-    ],
-    site: "https://marcosalves90.github.io/coconut_links/",
-    code: "https://github.com/MarcosAlves90/coconut_links",
-  },
-  {
-    name: "Antônia Fernandes",
-    description: 'message.antoniaFernandesDescription',
-    smallDescription: 'message.antoniaFernandesSmallDescription',
-    images: [
-      { src: './antonia_fernandes_store/imagem_1.png', caption: 'message.antoniaFernandesCaptions[0]' },
-      { src: './antonia_fernandes_store/imagem_2.png', caption: 'message.antoniaFernandesCaptions[1]' },
-    ],
-    site: "https://www.antoniafernandestore.com.br/",
-  },
-  {
-    name: "Which Dog Are You?",
-    description: 'message.whichDogAreYouDescription',
-    smallDescription: 'message.whichDogAreYouSmallDescription',
-    images: [
-      { src: './which_dog_are_you/image_1.png', caption: 'message.whichDogAreYouCaptions[0]' },
-      { src: './which_dog_are_you/image_2.png', caption: 'message.whichDogAreYouCaptions[1]' },
-    ],
-    site: "https://which-dog-are-you.vercel.app/",
-    code: "https://github.com/MarcosAlves90/personality_quiz"
-  }
-]);
-
-const translatedProjects = computed(() => {
-  return projects.value.map(project => ({
-    ...project,
-    description: t(project.description),
-    smallDescription: t(project.smallDescription),
-    images: project.images.map(image => ({
-      ...image,
-      caption: t(image.caption)
-    }))
-  }));
+onMounted(() => {
+  AOS.init();
 });
 
 </script>
 
 <template>
-  <main>
-    <section class="section-header" id="home">
-      <h1>Portfolio</h1>
-      <p>Marcos Lopes | {{ $t('message.developer') }}</p>
+  <main class="p-0 w-full font-poppins">
+    <section class="section-header h-60 flex justify-center items-center flex-col relative" id="home">
+      <h1 class="text-[10rem]">Portfolio</h1>
+      <p class="text-[1.1rem]">Marcos Lopes | {{ $t('message.developer') }}</p>
     </section>
     <section class="section-content" id="about">
       <article class="dark-bg about">
@@ -154,7 +25,7 @@ const translatedProjects = computed(() => {
           <img :src="theme === 'light' ? '/pilgrim.ciano.webp' : '/pilgrim.magenta.webp'" alt="Profile"
             loading="lazy" />
         </div>
-        <div class="text-box">
+        <div class="text-box" data-aos="fade-up">
           <h1>{{ $t('message.whoAm') }} <span class="highlight">{{ $t('message.i') }}</span>?</h1>
           <p>
             {{ $t('message.intro') }}
@@ -162,13 +33,10 @@ const translatedProjects = computed(() => {
         </div>
       </article>
       <article class="light-bg infos" id="contact">
-        <div class="text-box left">
+        <div class="text-box left" data-aos="fade-up">
           <h1>{{ $t('message.contactsTitle') }}</h1>
-          <motion.div
+          <div
             class="inverted-box contacts"
-            :initial="{ scale: 0.7, opacity: 0 }"
-            :whileInView="{ scale: 1, opacity: 1, transition: { duration: 0.5, type: 'spring', bounce: 0.4 } }"
-            :viewport="{ once: true }"
           >
             <div class="contact-item">
               <i class="bi bi-envelope-paper"></i>
@@ -193,13 +61,10 @@ const translatedProjects = computed(() => {
               <i class="bi bi-github"></i>
               <a href="https://github.com/MarcosAlves90" target="_blank" rel="noopener noreferrer">MarcosAlves90</a>
             </div>
-          </motion.div>
+          </div>
           <h1>{{ $t('message.languagesTitle') }}</h1>
-          <motion.div
+          <div
             class="inverted-box languages"
-            :initial="{ scale: 0.7, opacity: 0 }"
-            :whileInView="{ scale: 1, opacity: 1, transition: { duration: 0.5, delay: 0.1, type: 'spring', bounce: 0.4 } }"
-            :viewport="{ once: true }"
           >
             <p>{{ $t('message.portuguese') }}</p>
             <ProgressBar :progress="8" />
@@ -207,15 +72,12 @@ const translatedProjects = computed(() => {
             <p>{{ $t('message.english') }}</p>
             <ProgressBar :progress="6" />
             <p class="description">{{ $t('message.englishText') }}</p>
-          </motion.div>
+          </div>
         </div>
-        <div class="text-box right">
+        <div class="text-box right" data-aos="fade-up">
           <h1>{{ $t('message.educationTitle') }}</h1>
-          <motion.div
+          <div
             class="inverted-box education"
-            :initial="{ scale: 0.7, opacity: 0 }"
-            :whileInView="{ scale: 1, opacity: 1, transition: { duration: 0.5, delay: 0.2, type: 'spring', bounce: 0.4 } }"
-            :viewport="{ once: true }"
           >
             <ul>
               <li>
@@ -231,13 +93,10 @@ const translatedProjects = computed(() => {
                 <p>{{ "{" + $t('message.educationThirdText') + "}" }}</p>
               </li>
             </ul>
-          </motion.div>
+          </div>
           <h1>{{ $t('message.skillsTitle') }}</h1>
-          <motion.div
+          <div
             class="inverted-box skills"
-            :initial="{ scale: 0.7, opacity: 0 }"
-            :whileInView="{ scale: 1, opacity: 1, transition: { duration: 0.5, delay: 0.3, type: 'spring', bounce: 0.4 } }"
-            :viewport="{ once: true }"
           >
             <div class="skill">
               <svg viewBox="0 0 128 128">
@@ -394,52 +253,25 @@ const translatedProjects = computed(() => {
               </svg>
               <span>Figma</span>
             </div>
-          </motion.div>
+          </div>
         </div>
       </article>
       <article class="dark-bg projects" id="projects">
-        <div class="text-box viewer">
-          <div class="first-slice">
-            <h1>{{ translatedProjects[currentProject].name }}</h1>
-            <p>{{ translatedProjects[currentProject].description }}</p>
-            <div class="buttons-box">
-              <button v-if="translatedProjects[currentProject].site" class="click-button reversed"
-                @click="openLink(translatedProjects[currentProject].site)">{{ $t('message.verifyWebsite') }}</button>
-              <button v-if="translatedProjects[currentProject].code" class="click-button"
-                @click="openLink(translatedProjects[currentProject].code)">{{ $t('message.sourceCode') }}</button>
-            </div>
-          </div>
-          <h1 class="mobile-title">{{ translatedProjects[currentProject].name }}</h1>
-          <SlideShow :slides="translatedProjects[currentProject].images" />
-        </div>
         <p class="observation">{{ $t('message.tutorialOne') }}</p>
-        <ProjectCards :projects="translatedProjects" :currentProject="currentProject" @setCurrentProject="handleProjectClick" />
+        <ProjectCards />
       </article>
     </section>
   </main>
 </template>
 
 <style scoped>
-main {
-  padding: 0;
-  width: 100%;
-  font-family: 'Poppins', sans-serif;
-}
-
 .section-header {
-  height: 60rem;
   background: linear-gradient(90deg, var(--color-grid) 2px, transparent 2px),
     linear-gradient(var(--color-grid) 2px, transparent 2px) fixed;
   background-size: 100px 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  position: relative;
   animation: moveGrid100px 3s linear infinite;
 
   h1 {
-    font-size: 11rem;
     font-weight: 300;
     margin-bottom: 0;
     cursor: pointer;
@@ -468,7 +300,6 @@ main {
 
   p {
     padding-bottom: 2rem;
-    font-size: 1.3rem;
     margin-top: -3.9rem;
     font-weight: 600;
     letter-spacing: 0.61rem;
