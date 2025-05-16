@@ -15,25 +15,25 @@ onMounted(() => {
 
 <template>
   <main class="p-0 w-full font-poppins">
-    <section class="section-header h-60 flex justify-center items-center flex-col relative" id="home">
-      <h1 class="text-[10rem]">Portfolio</h1>
-      <p class="text-[1.1rem]">Marcos Lopes | {{ $t('message.developer') }}</p>
+    <section class="section-header h-60 flex justify-center items-center flex-col relative max-lg:h-45" id="home">
+      <h1 class="mb-0 cursor-pointer font-gavency text-[10rem] font-light z-5 active:text-[9rem] max-lg:text-[17vw]">Portfolio</h1>
+      <p class="mt-[-3.9rem] pb-2 text-[1.1rem] font-semibold tracking-[0.61rem] z-5 max-lg:text-[3.78vw] max-lg:tracking-normal max-lg:mt-[-5vw] max-lg:pb-[5vw]">Marcos Lopes | {{ $t('message.developer') }}</p>
     </section>
     <section class="section-content" id="about">
-      <article class="dark-bg about">
+      <article class="dark-bg about section-content__article">
         <div class="image-box">
           <img :src="theme === 'light' ? '/pilgrim.ciano.webp' : '/pilgrim.magenta.webp'" alt="Profile"
             loading="lazy" />
         </div>
-        <div class="text-box" data-aos="fade-up">
+        <div class="text-box section-content__text-box" data-aos="fade-up">
           <h1>{{ $t('message.whoAm') }} <span class="highlight">{{ $t('message.i') }}</span>?</h1>
           <p>
             {{ $t('message.intro') }}
           </p>
         </div>
       </article>
-      <article class="light-bg infos" id="contact">
-        <div class="text-box left" data-aos="fade-up">
+      <article class="light-bg infos section-content__article" id="contact">
+        <div class="text-box left section-content__text-box" data-aos="fade-up">
           <h1>{{ $t('message.contactsTitle') }}</h1>
           <div
             class="inverted-box contacts"
@@ -256,7 +256,7 @@ onMounted(() => {
           </div>
         </div>
       </article>
-      <article class="dark-bg projects" id="projects">
+      <article class="dark-bg projects section-content__article" id="projects">
         <p class="observation">{{ $t('message.tutorialOne') }}</p>
         <ProjectCards />
       </article>
@@ -272,10 +272,6 @@ onMounted(() => {
   animation: moveGrid100px 3s linear infinite;
 
   h1 {
-    font-weight: 300;
-    margin-bottom: 0;
-    cursor: pointer;
-    font-family: "Gavency", serif;
     transition: color 0.2s ease-in-out, font-size 0.1s ease-in-out;
 
     @supports (background-clip: text) or (-webkit-background-clip: text) {
@@ -292,88 +288,25 @@ onMounted(() => {
         color: transparent;
       }
     }
-
-    &:active {
-      font-size: 10rem;
-    }
-  }
-
-  p {
-    padding-bottom: 2rem;
-    margin-top: -3.9rem;
-    font-weight: 600;
-    letter-spacing: 0.61rem;
-  }
-
-  button {
-    background-color: var(--color-text);
-    color: var(--color-background);
-    border: none;
-    padding: 0.5rem 7rem;
-    font-size: 1.15rem;
-    cursor: pointer;
-    margin-top: 2rem;
-    border-radius: var(--common-border-radius);
-    transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
-
-    &:hover {
-      background-color: var(--color-highlight);
-    }
-
-    &:active {
-      transform: scale(0.9);
-    }
-  }
-
-  h1,
-  p,
-  button {
-    z-index: 5;
   }
 
   @media (max-width: 950px) {
-    height: 45rem;
     background-size: 70px 70px;
-    --common-font-size: 3.78vw;
     animation: moveGrid70px 3s linear infinite;
 
     h1 {
-      font-size: 17vw;
-
       &:active {
         font-size: 13vw;
       }
     }
 
-    p {
-      letter-spacing: 0;
-      margin-top: -5vw;
-      font-size: var(--common-font-size);
-      padding-bottom: 5vw;
-    }
-
-    button {
-      margin-top: 0;
-      font-size: var(--common-font-size);
-      padding: 0.5rem 22vw;
-    }
   }
 }
 
 .section-content {
   article {
-    display: flex;
-    gap: 4rem;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: 7rem 2rem;
-    box-sizing: border-box;
 
     .text-box {
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
 
       h1 {
         font-size: 3rem;
