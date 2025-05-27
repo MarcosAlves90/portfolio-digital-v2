@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import NavBar from "@/components/NavBar.vue";
-import MainPage from "@/components/MainPage.vue";
-import Footer from "@/components/Footer.vue";
+import NavBar from "@/components/organisms/NavBar.vue";
+import MainPage from "@/components/pages/MainPage.vue";
+import Footer from "@/components/organisms/Footer.vue";
 import {provide, ref} from "vue";
 
 const theme = ref<string>('light');

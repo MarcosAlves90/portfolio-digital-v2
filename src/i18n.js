@@ -52,7 +52,11 @@ const messages = {
                 'Contact',
                 'Projects',
             ],
-
+            projectTypes: {
+                'commercial': 'Commercial',
+                'social': 'Charitable',
+                'educational': 'Academic'
+            }
         },
     },
     pt: {
@@ -123,6 +127,11 @@ const messages = {
                 'Contato',
                 'Projetos',
             ],
+            projectTypes: {
+                'commercial':'Comercial',
+                'social':'Beneficente',
+                'educational':'Acadêmico'
+            }
 
         },
     },

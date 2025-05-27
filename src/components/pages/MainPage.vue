@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, inject, onMounted } from "vue";
-import ProgressBar from "@/components/ProgressBar.vue";
-import ProjectCards from "@/components/ProjectCards.vue"
+import ProgressBar from "@/components/atoms/ProgressBar.vue";
+import ProjectCards from "@/components/molecules/ProjectCards.vue"
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 

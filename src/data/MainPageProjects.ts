@@ -1,5 +1,19 @@
-// Este arquivo exporta o array de projetos para uso em MainPage.vue
-export default [
+export interface ProjectImage {
+  src: string;
+}
+
+export type ProjectType = 'educational' | 'commercial' | 'social';
+
+export interface MainPageProject {
+  name: string;
+  smallDescription: string;
+  images: ProjectImage[];
+  site: string;
+  code: string;
+  type: ProjectType;
+}
+
+const projects: MainPageProject[] = [
   {
     name: "MidNight",
     smallDescription: 'message.midnightSmallDescription',
@@ -16,6 +30,7 @@ export default [
     ],
     site: "https://tmwcse.vercel.app/",
     code: "https://github.com/MarcosAlves90/projetoRPG_TMW_Ficha/tree/develop",
+    type: "educational"
   },
   {
     name: "Bunchin",
@@ -26,6 +41,7 @@ export default [
     ],
     site: "https://bunchin-project.onrender.com",
     code: "https://github.com/MarcosAlves90/bunchin",
+    type: "educational"
   },
   {
     name: "Dicenders",
@@ -39,6 +55,7 @@ export default [
     ],
     site: "https://dicenders-ai8s.onrender.com/",
     code: "https://github.com/Dicenders/DicendersSite",
+    type: "educational"
   },
   {
     name: "Além do Olhar",
@@ -48,6 +65,7 @@ export default [
     ],
     site: "https://alem-do-olhar.vercel.app/",
     code: "https://github.com/MarcosAlves90/alem_do_olhar",
+    type: "social"
   },
   {
     name: "Coconut Links",
@@ -57,6 +75,7 @@ export default [
     ],
     site: "https://marcosalves90.github.io/coconut_links/",
     code: "https://github.com/MarcosAlves90/coconut_links",
+    type: "educational"
   },
   {
     name: "Antônia Fernandes",
@@ -67,6 +86,7 @@ export default [
     ],
     site: "https://www.antoniafernandestore.com.br/",
     code: "",
+    type: "commercial"
   },
   {
     name: "Which Dog Are You?",
@@ -76,7 +96,8 @@ export default [
       { src: './which_dog_are_you/image_2.png' },
     ],
     site: "https://which-dog-are-you.vercel.app/",
-    code: "https://github.com/MarcosAlves90/personality_quiz"
+    code: "https://github.com/MarcosAlves90/personality_quiz",
+    type: "educational"
   },
   {
     name: "Mediari Consultoria",
@@ -86,6 +107,9 @@ export default [
       { src: './mediari_consultoria/image_2.png' },
     ],
     site: "https://mediari-consultoria.netlify.app/",
-    code: "https://github.com/MarcosAlves90/mediari-consultoria"
+    code: "https://github.com/MarcosAlves90/mediari-consultoria",
+    type: "commercial"
   }
 ];
+
+export default projects;
