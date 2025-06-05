@@ -106,7 +106,7 @@ const projects: MainPageProject[] = [
       { src: './mediari_consultoria/image_1.png' },
       { src: './mediari_consultoria/image_2.png' },
     ],
-    site: "https://mediari-consultoria.netlify.app/",
+    site: "https://www.mediariconsultoria.com.br/",
     code: "https://github.com/MarcosAlves90/mediari-consultoria",
     type: "commercial"
   }
