@@ -44,17 +44,13 @@ const projects: MainPageProject[] = [
     type: "educational"
   },
   {
-    name: "Dicenders",
-    smallDescription: 'message.dicendersSmallDescription',
+    name: "Diário de Mariupol",
+    smallDescription: 'message.diarioDeMariupolSmallDescription',
     images: [
-      { src: "./dicenders/image_1.png" },
-      { src: "./dicenders/image_2.png" },
-      { src: "./dicenders/image_3.png" },
-      { src: "./dicenders/image_4.png" },
-      { src: "./dicenders/image_5.png" },
+      { src: 'https://res.cloudinary.com/dflvo098t/image/upload/imagem-1-diario-de-mariupol_g7fd9g.png' },
     ],
-    site: "https://dicenders-ai8s.onrender.com/",
-    code: "https://github.com/Dicenders/DicendersSite",
+    site: "https://diario-de-mariupol.vercel.app/",
+    code: "",
     type: "educational"
   },
   {

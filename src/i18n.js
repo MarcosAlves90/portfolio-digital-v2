@@ -40,6 +40,8 @@ const messages = {
             antoniaFernandesSmallDescription: "Online store for women's fashion and accessories.",
             // projetos - Which Dog Are You?
             whichDogAreYouSmallDescription: 'Quiz to find out what breed of dog you are.',
+            // projetos - Diário de Mariupol
+            diarioDeMariupolSmallDescription: 'Landing page for the book "Mariupol Diary".',
             // projetos - Mediari Consultoria
             mediariConsultoriaSmallDescription: 'Mediari Consultoria landing page developed with Nuxt.',
             // footer
@@ -115,6 +117,8 @@ const messages = {
             antoniaFernandesSmallDescription: 'Loja online de moda feminina e acessórios.',
             // projetos - Which Dog Are You?
             whichDogAreYouSmallDescription: 'Quiz que indica qual seria sua raça de cachorro.',
+            // projetos - Diário de Mariupol
+            diarioDeMariupolSmallDescription: 'Landing page para o livro "Diário de Mariupol".',
             // projetos - Mediari Consultoria
             mediariConsultoriaSmallDescription: 'Landing page da Mediari Consultoria desenvolvida com Nuxt.',
             // footer
