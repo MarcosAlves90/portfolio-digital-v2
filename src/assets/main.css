@@ -10,6 +10,7 @@
   --color-highlight: var(--color-highlight);
   --color-primary: var(--color-text);
   --color-secondary: var(--color-secondary);
+  --color-tertiary: var(--color-tertiary);
 
   --breakpoint-520: 520px;
   --font-poppins: 'Poppins', sans-serif;
@@ -22,6 +23,7 @@
   --color-highlight: #1e73be;
   --color-primary: #eeeeee;
   --color-secondary: #9396b1;
+  --color-tertiary: #4a4e69;
 
   --header-title-animation: url("data:image/svg+xml,%3Csvg width='2250' height='900' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg%3E%3Cpath fill='%231e73be' d='M0 0h2255v899H0z'/%3E%3Ccircle cx='366' cy='207' r='366' fill='%23307cce'/%3E%3Ccircle cx='1777.5' cy='318.5' r='477.5' fill='%23307cce'/%3E%3Ccircle cx='1215' cy='737' r='366' fill='%23155a9e'/%3E%3C/g%3E%3C/svg%3E%0A");
 
