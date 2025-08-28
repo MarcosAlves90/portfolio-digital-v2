@@ -1,4 +1,6 @@
-export const experiences = [
+import { Experience } from './types';
+
+export const experiences: Experience[] = [
     {
         period: '2024-PRESENTE',
         title: 'Freelancer e Projetos Pessoais',

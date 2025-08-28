@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import ExperienceCard from '../molecules/ExperienceCard.vue';
-import ProjectCard from '../molecules/ProjectCard.vue';
+import ExperienceCard from '@/components/molecules/ExperienceCard.vue';
+import ProjectCard from '@/components/molecules/ProjectCard.vue';
 import { useHead } from '@vueuse/head'
-import { experiences } from '../../data/experiences';
-import { projects } from '../../data/projects';
+import { experiences } from '@/data/experiences';
+import { projectsMainPage } from '@/data/projects';
 
 useHead({
   title: 'Marcos Lopes - Desenvolvedor Full Stack',
@@ -64,7 +64,7 @@ useHead({
 
       <div class="space-y-2 group">
         <div
-          v-for="project in projects"
+          v-for="project in projectsMainPage"
           :key="project.title"
           class="transition-opacity duration-200 opacity-100 group-hover:opacity-70 hover:opacity-100"
         >
