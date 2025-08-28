@@ -2,7 +2,7 @@
 @import "tailwindcss";
 
 #app {
-  @apply mx-auto min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-16 text-primary text-base;
+  @apply mx-auto min-h-screen max-w-screen-xl px-6 font-sans md:px-12 text-primary text-base;
 }
 
 @theme {

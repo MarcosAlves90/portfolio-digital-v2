@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import MainPage from "@/components/pages/MainPage.vue"
 import CursorLight from "@/components/atoms/CursorLight.vue"
 </script>
 
@@ -7,7 +6,7 @@ import CursorLight from "@/components/atoms/CursorLight.vue"
   <div class="app-root">
     <CursorLight />
     <div class="content">
-      <MainPage />
+      <router-view />
     </div>
   </div>
 </template>
