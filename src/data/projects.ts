@@ -12,6 +12,15 @@ const projectsBrute: Project[] = [
         company: 'Mediari Consultoria'
     },
     {
+        title: 'Okorok',
+        description: 'Plataforma de receitas culinárias para compartilhar, criar, curtir e salvar receitas.',
+        link: 'https://okorok.vercel.app',
+        imageSrc: 'https://res.cloudinary.com/dgsywmzb2/image/upload/v1756435274/okorok_qpinw6.png',
+        imageAlt: 'Screenshot da plataforma de receitas culinárias Okorok',
+        skills: ['Next.js', 'Tailwindcss', 'TypeScript', 'PostgreSQL'],
+        year: 2025,
+    },
+    {
         title: 'MidNight',
         description: 'Plataforma de fichas de RPG de mesa.',
         link: 'https://tmwcse.vercel.app',
@@ -55,6 +64,24 @@ const projectsBrute: Project[] = [
         imageSrc: 'https://res.cloudinary.com/dgsywmzb2/image/upload/v1756407486/bunchin_tskqeo.png',
         imageAlt: 'Screenshot da plataforma de ponto digital e gestão empresarial Bunchin.',
         skills: ['React', 'Tailwindcss', 'TypeScript', 'Spring Boot', 'PostgreSQL', 'Docker'],
+        year: 2024,
+    },
+    {
+        title: 'Which Dog Are You?',
+        description: 'Quiz que indica qual seria sua raça de cachorro.',
+        link: 'https://which-dog-are-you.vercel.app',
+        imageSrc: 'https://res.cloudinary.com/dgsywmzb2/image/upload/v1756436030/which_dog_are_you_pjpyan.png',
+        imageAlt: 'Screenshot do quiz Which Dog Are You?',
+        skills: ['React', 'JavaScript', 'CSS'],
+        year: 2024,
+    },
+    {
+        title: 'Além do Olhar',
+        description: 'Plataforma de divulgação de trabalhos criativos.',
+        link: 'https://alem-do-olhar.vercel.app',
+        imageSrc: 'https://res.cloudinary.com/dgsywmzb2/image/upload/v1756436460/alem_do_olhar_d3setx.png',
+        imageAlt: 'Screenshot da plataforma de divulgação de trabalhos criativos Além do Olhar.',
+        skills: ['React', 'JavaScript', 'CSS'],
         year: 2024,
     }
 ];

@@ -44,7 +44,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-    <div class="cursor-light" aria-hidden="true" />
+    <div class="cursor-light max-lg:hidden" aria-hidden="true" />
 </template>
 
 <style scoped>
