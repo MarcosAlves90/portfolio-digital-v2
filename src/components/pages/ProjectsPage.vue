@@ -46,7 +46,7 @@ const filteredProjects = computed(() => {
       </div>
     </div>
 
-    <div class="max-w-6xl w-full pb-6 md:pb-8">
+    <div class="max-w-6xl w-full pb-8 md:pb-10">
       <div class="mb-8">
         <div class="relative">
           <i class="bi bi-search absolute left-3 top-1/2 transform -translate-y-1/2 text-secondary"></i>
@@ -74,7 +74,22 @@ const filteredProjects = computed(() => {
           <tbody>
             <tr v-for="project in filteredProjects" :key="project.title">
               <td class="text-tertiary">{{ project.year || 'N/A' }}</td>
-              <td class="font-semibold">{{ project.title }}</td>
+              <td class="font-semibold">
+                <!-- On small screens the link column is hidden, so make the title a link there -->
+                <a
+                  v-if="project.link"
+                  :href="project.link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="sm:hidden cursor-pointer text-highlight hover:text-primary"
+                >
+                  {{ project.title }}
+                </a>
+                <span v-else class="sm:hidden">{{ project.title }}</span>
+
+                <!-- On small+ screens keep the plain title (existing behavior) -->
+                <span class="hidden sm:inline">{{ project.title }}</span>
+              </td>
               <td class="text-tertiary hidden lg:table-cell">{{ project.company }}</td>
               <td class="hidden lg:table-cell">
                 <ul class="flex flex-wrap gap-2 text-sm">

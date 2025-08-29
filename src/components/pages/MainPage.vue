@@ -24,10 +24,27 @@ useHead({
         <h1 class="text-5xl font-semibold">Marcos Lopes</h1>
         <h2 class="text-xl font-medium">Desenvolvedor Full Stack</h2>
         <p class="text-secondary max-w-xs w-full">Sou um desenvolvedor full-stack, designer gráfico e escritor que está sempre disposto a encarar desafios.</p>
-        <ul class="space-y-2">
-          <li class="cursor-pointer">SOBRE</li>
-          <li class="cursor-pointer">EXPERIÊNCIA</li>
-          <li class="cursor-pointer">PROJETOS</li>
+        <ul class="space-y-5 mt-15 font-semibold text-sm">
+          <li class="text-tertiary">
+            <span class="inline-flex items-center space-x-3 cursor-pointer group transition-colors duration-200">
+              <span class="inline-block h-[1px] w-10 bg-tertiary rounded transition-all duration-200 group-hover:w-15 group-hover:bg-primary"></span>
+              <span class="transition-colors duration-200 group-hover:text-primary">SOBRE</span>
+            </span>
+          </li>
+
+          <li class="text-tertiary">
+            <span class="inline-flex items-center space-x-3 cursor-pointer group transition-colors duration-200">
+              <span class="inline-block h-[1px] w-10 bg-tertiary rounded transition-all duration-200 group-hover:w-15 group-hover:bg-primary"></span>
+              <span class="transition-colors duration-200 group-hover:text-primary">EXPERIÊNCIA</span>
+            </span>
+          </li>
+
+          <li class="text-tertiary">
+            <span class="inline-flex items-center space-x-3 cursor-pointer group transition-colors duration-200">
+              <span class="inline-block h-[1px] w-10 bg-tertiary rounded transition-all duration-200 group-hover:w-15 group-hover:bg-primary"></span>
+              <span class="transition-colors duration-200 group-hover:text-primary">PROJETOS</span>
+            </span>
+          </li>
         </ul>
       </div>
     </div>
@@ -37,8 +54,8 @@ useHead({
     
       <div class="space-y-2 group">
         <div
-          v-for="experience in experiences"
-          :key="experience.title"
+          v-for="(experience, i) in experiences"
+          :key="`${experience.title}-${i}`"
           class="transition-opacity duration-200 opacity-100 group-hover:opacity-70 hover:opacity-100"
         >
           <ExperienceCard
@@ -53,10 +70,11 @@ useHead({
 
       <div class="px-4">
         <a
-        href="https://res.cloudinary.com/dgsywmzb2/image/upload/v1755999385/curriculo-marcos_lopes.pdf"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="font-semibold cursor-pointer hover:text-highlight"
+          href="https://res.cloudinary.com/dgsywmzb2/image/upload/v1755999385/curriculo-marcos_lopes.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Abrir currículo completo em nova aba"
+          class="font-semibold cursor-pointer hover:text-highlight"
         >
           Ver currículo completo
         </a>
@@ -64,8 +82,8 @@ useHead({
 
       <div class="space-y-2 group">
         <div
-          v-for="project in projectsMainPage"
-          :key="project.title"
+          v-for="(project, j) in projectsMainPage"
+          :key="`${project.title}-${j}`"
           class="transition-opacity duration-200 opacity-100 group-hover:opacity-70 hover:opacity-100"
         >
           <ProjectCard
@@ -81,8 +99,9 @@ useHead({
 
       <div class="px-4">
         <router-link
-        to="/projetos"
-        class="font-semibold cursor-pointer hover:text-highlight"
+          to="/projetos"
+          aria-label="Ver todos os projetos"
+          class="font-semibold cursor-pointer hover:text-highlight"
         >
           Ver todos os projetos
         </router-link>
@@ -90,7 +109,3 @@ useHead({
     </div>
   </main>
 </template>
-
-<style scoped>
-
-</style>
