@@ -83,6 +83,15 @@ const projectsBrute: Project[] = [
         imageAlt: 'Screenshot da plataforma de divulgação de trabalhos criativos Além do Olhar.',
         skills: ['React', 'JavaScript', 'CSS'],
         year: 2024,
+    },
+    {
+        title: 'Dicenders',
+        description: 'Rede social e tabuleiro virtual para jogos de RPG.',
+        link: 'https://dicenders-ai8s.onrender.com',
+        imageSrc: 'https://res.cloudinary.com/dgsywmzb2/image/upload/v1756519742/dicenders_v3375y.png',
+        imageAlt: 'Screenshot da rede social e tabuleiro virtual para jogos de RPG Dicenders.',
+        skills: ['Handlebars', 'JavaScript', 'CSS', 'Express.js', 'MongoDB', 'Socket.io'],
+        year: 2023,
     }
 ];
 
