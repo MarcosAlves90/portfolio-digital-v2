@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import { optimizeCloudinaryUrl } from '../../utils/cloudinary';
-import CardBase from '../templates/CardBase.vue';
+import { optimizeCloudinaryUrl } from '@/utils/cloudinary';
+import CardBase from '@/components/templates/CardBase.vue';
 
 const props = defineProps<{
         imageSrc: string;

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import CardBase from '../templates/CardBase.vue';
+import CardBase from '@/components/templates/CardBase.vue';
 
 const props = defineProps<{
   period: string
