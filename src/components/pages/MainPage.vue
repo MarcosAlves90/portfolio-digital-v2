@@ -128,7 +128,7 @@ const scrollTo = (id: string) => {
         </div>
       </section>
 
-  <MainPageLink />
+      <MainPageLink />
 
       <section id="projetos" class="space-y-2 group" aria-labelledby="projetos-heading">
         <h3 id="projetos-heading" class="max-lg:uppercase lg:sr-only font-semibold pb-6">Projetos</h3>
@@ -141,7 +141,7 @@ const scrollTo = (id: string) => {
         </div>
       </section>
 
-  <MainPageLink to="/projetos" label="Ver todos os projetos" aria-label="Ver todos os projetos" />
+      <MainPageLink to="/projetos" label="Ver todos os projetos" aria-label="Ver todos os projetos" />
     </div>
   </main>
 </template>

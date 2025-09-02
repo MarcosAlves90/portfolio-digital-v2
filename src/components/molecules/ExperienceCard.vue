@@ -18,7 +18,9 @@ const props = defineProps<{
 
     <div class="space-y-3">
       <div class="space-y-1">
-        <h2 class="font-medium lg:group-hover:text-highlight transition-colors duration-200">{{ props.title }}</h2>
+        <h2 class="font-medium lg:group-hover:text-highlight transition-colors duration-200">{{ props.title }}
+          <i class="bi bi-box-arrow-up-right ml-1 group-hover:ml-3 transition-all duration-200" aria-hidden="true"></i>
+        </h2>
         <p class="text-secondary text-sm transition-opacity duration-200 group-hover:opacity-95">{{ props.description }}</p>
       </div>
       <ul class="flex flex-wrap gap-2 text-sm">

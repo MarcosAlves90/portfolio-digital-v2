@@ -13,17 +13,17 @@ const isRouter = computed(() => Boolean(props.to));
 </script>
 
 <template>
-    <p class="lg:px-4 max-lg:my-15 group">
+    <p class="lg:px-4 max-lg:my-15">
         <router-link v-if="isRouter" :to="props.to" :aria-label="props.ariaLabel"
-            class="font-semibold cursor-pointer hover:text-highlight hover:underline transition-all duration-200">
+            class="font-semibold cursor-pointer group hover:text-highlight hover:underline transition-all duration-200">
             {{ props.label }}
             <i class="bi bi-arrow-right ml-1 group-hover:ml-3 transition-all duration-200" aria-hidden="true"></i>
         </router-link>
 
         <a v-else :href="props.href" :target="props.newTab ? '_blank' : undefined" rel="noopener noreferrer"
-            :aria-label="props.ariaLabel" class="font-semibold cursor-pointer hover:text-highlight hover:underline transition-all duration-200">
+            :aria-label="props.ariaLabel" class="font-semibold group cursor-pointer hover:text-highlight hover:underline transition-all duration-200">
             {{ props.label }}
-            <i class="bi bi-arrow-right ml-1 group-hover:ml-3 transition-all duration-200" aria-hidden="true"></i>
+            <i class="bi bi-box-arrow-up-right ml-1 group-hover:ml-3 transition-all duration-200" aria-hidden="true"></i>
         </a>
     </p>
 </template>
