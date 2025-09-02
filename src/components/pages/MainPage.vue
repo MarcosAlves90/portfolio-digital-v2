@@ -23,20 +23,20 @@ const scrollTo = (id: string) => {
 </script>
 
 <template>
-  <main class="p-0 w-full font-poppins flex flex-col md:flex-row">
+  <main class="p-0 w-full font-poppins flex flex-col lg:flex-row">
 
     <!-- Lateral: informações iniciais e navegação -->
-    <aside class="w-full md:max-w-6xl md:w-full" aria-label="Introdução do autor">
-      <header class="space-y-2 py-12 md:py-16 md:sticky md:top-0 flex flex-col md:h-screen justify-between">
+    <aside class="w-full lg:max-w-6xl lg:w-full" aria-label="Introdução do autor">
+      <header class="space-y-2 py-12 lg:py-16 lg:sticky lg:top-0 flex flex-col lg:h-screen justify-between">
         <div class="space-y-3">
-          <h1 class="text-3xl md:text-5xl font-semibold">Marcos Lopes</h1>
-          <h2 class="text-lg md:text-xl font-medium">Desenvolvedor Full Stack</h2>
-          <p class="text-secondary md:max-w-xs w-full">Sou um desenvolvedor full-stack, designer gráfico e escritor que
+          <h1 class="text-3xl lg:text-5xl font-semibold">Marcos Lopes</h1>
+          <h2 class="text-lg lg:text-xl font-medium">Desenvolvedor Full Stack</h2>
+          <p class="text-secondary lg:max-w-xs w-full">Sou um desenvolvedor full-stack, designer gráfico e escritor que
             está
             sempre disposto a encarar desafios.</p>
 
           <nav aria-label="Navegação da página">
-            <ul class="space-y-5 mt-10 md:mt-15 font-semibold text-sm">
+            <ul class="space-y-5 mt-10 lg:mt-15 font-semibold text-sm">
               <li class="text-tertiary">
                 <a href="#sobre" @click.prevent="scrollTo('sobre')"
                   class="inline-flex items-center space-x-3 group transition-colors duration-200">
@@ -107,9 +107,9 @@ const scrollTo = (id: string) => {
     </aside>
 
     <!-- Conteúdo principal: seções semânticas -->
-    <div class="space-y-8 md:space-y-12 w-full py-8 md:py-16">
-      <section id="sobre" class="px-6 md:px-4" aria-labelledby="sobre-heading">
-        <h3 id="sobre-heading" class="sr-only">Sobre</h3>
+    <div class="space-y-8 lg:space-y-12 w-full py-8 lg:py-16">
+      <section id="sobre" class="lg:px-4" aria-labelledby="sobre-heading">
+        <h3 id="sobre-heading" class="max-lg:uppercase lg:sr-only font-semibold pb-6">Sobre</h3>
         <p class="text-secondary">Profissional com experiência em desenvolvimento web, design gráfico e produção de
           conteúdo, atuando em projetos próprios, acadêmicos e freelances. Foco em soluções modernas, interfaces
           responsivas e integrações com serviços em nuvem. Formação técnica e superior em desenvolvimento de software,
@@ -117,17 +117,17 @@ const scrollTo = (id: string) => {
       </section>
 
       <section id="experiencia" class="space-y-2 group" aria-labelledby="experiencia-heading">
-        <h3 id="experiencia-heading" class="sr-only">Experiência</h3>
-        <div>
+        <h3 id="experiencia-heading" class="max-lg:uppercase lg:sr-only font-semibold pb-6">Experiência</h3>
+        <div class="max-lg:space-y-10">
           <article v-for="(experience, i) in experiences" :key="`${experience.title}-${i}`"
-            class="transition-opacity duration-200 opacity-100 group-hover:opacity-70 hover:opacity-100">
+            class="transition-opacity duration-200 opacity-100 lg:group-hover:opacity-70 lg:hover:opacity-100">
             <ExperienceCard :period="experience.period" :title="experience.title" :description="experience.description"
               :skills="experience.skills" :link="experience.link" />
           </article>
         </div>
       </section>
 
-      <p class="px-6 md:px-4">
+      <p class="lg:px-4">
         <a href="https://res.cloudinary.com/dgsywmzb2/image/upload/v1755999385/curriculo-marcos_lopes.pdf"
           target="_blank" rel="noopener noreferrer" aria-label="Abrir currículo completo em nova aba"
           class="font-semibold cursor-pointer hover:text-highlight">
@@ -136,17 +136,17 @@ const scrollTo = (id: string) => {
       </p>
 
       <section id="projetos" class="space-y-2 group" aria-labelledby="projetos-heading">
-        <h3 id="projetos-heading" class="sr-only">Projetos</h3>
-        <div>
+        <h3 id="projetos-heading" class="max-lg:uppercase lg:sr-only font-semibold pb-6">Projetos</h3>
+        <div class="max-lg:space-y-10">
           <article v-for="(project, j) in projectsMainPage" :key="`${project.title}-${j}`"
-            class="transition-opacity duration-200 opacity-100 group-hover:opacity-70 hover:opacity-100">
+            class="transition-opacity duration-200 opacity-100 lg:group-hover:opacity-70 lg:hover:opacity-100">
             <ProjectCard :title="project.title" :description="project.description" :link="project.link"
               :imageSrc="project.imageSrc" :imageAlt="project.imageAlt" :skills="project.skills" />
           </article>
         </div>
       </section>
 
-      <p class="px-6 md:px-4">
+      <p class="lg:px-4">
         <router-link to="/projetos" aria-label="Ver todos os projetos"
           class="font-semibold cursor-pointer hover:text-highlight">
           Ver todos os projetos
