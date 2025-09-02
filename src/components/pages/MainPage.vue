@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import ExperienceCard from '@/components/molecules/ExperienceCard.vue';
 import ProjectCard from '@/components/molecules/ProjectCard.vue';
+import MainPageLink from '@/components/atoms/MainPageLink.vue';
 import { useHead } from '@vueuse/head'
 import { experiences } from '@/data/experiences';
 import { projectsMainPage } from '@/data/projects';
@@ -127,13 +128,7 @@ const scrollTo = (id: string) => {
         </div>
       </section>
 
-      <p class="lg:px-4">
-        <a href="https://res.cloudinary.com/dgsywmzb2/image/upload/v1755999385/curriculo-marcos_lopes.pdf"
-          target="_blank" rel="noopener noreferrer" aria-label="Abrir currículo completo em nova aba"
-          class="font-semibold cursor-pointer hover:text-highlight">
-          Ver currículo completo
-        </a>
-      </p>
+  <MainPageLink />
 
       <section id="projetos" class="space-y-2 group" aria-labelledby="projetos-heading">
         <h3 id="projetos-heading" class="max-lg:uppercase lg:sr-only font-semibold pb-6">Projetos</h3>
@@ -146,12 +141,7 @@ const scrollTo = (id: string) => {
         </div>
       </section>
 
-      <p class="lg:px-4">
-        <router-link to="/projetos" aria-label="Ver todos os projetos"
-          class="font-semibold cursor-pointer hover:text-highlight">
-          Ver todos os projetos
-        </router-link>
-      </p>
+  <MainPageLink to="/projetos" label="Ver todos os projetos" aria-label="Ver todos os projetos" />
     </div>
   </main>
 </template>
