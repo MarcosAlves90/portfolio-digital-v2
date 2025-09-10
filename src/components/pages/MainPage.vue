@@ -29,7 +29,7 @@ const scrollTo = (id: string) => {
     <!-- Lateral: informações iniciais e navegação -->
     <aside class="w-full lg:max-w-6xl lg:w-full" aria-label="Introdução do autor">
       <header class="space-y-2 py-12 lg:py-16 lg:sticky lg:top-0 flex flex-col lg:h-screen justify-between">
-        <div class="space-y-3">
+        <div class="space-y-3 max-lg:mb-10">
           <h1 class="text-3xl lg:text-5xl font-semibold">Marcos Lopes</h1>
           <h2 class="text-lg lg:text-xl font-medium">Desenvolvedor Full Stack</h2>
           <p class="text-secondary lg:max-w-xs w-full">Sou um desenvolvedor full-stack, designer gráfico e escritor que
