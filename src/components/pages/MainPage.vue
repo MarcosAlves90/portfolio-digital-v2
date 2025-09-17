@@ -5,7 +5,7 @@ import MainPageLink from '@/components/atoms/MainPageLink.vue';
 import { useHead } from '@vueuse/head'
 import { experiences } from '@/data/experiences';
 import { projectsMainPage } from '@/data/projects';
-import { ref } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
 
 useHead({
   title: 'Marcos Lopes',
@@ -26,6 +26,52 @@ const scrollTo = (id: string) => {
 // hover state para aplicar opacidade nos irmãos quando houver hover em um card
 const hoveredExperience = ref<number | null>(null);
 const hoveredProject = ref<number | null>(null);
+
+// Estado para a seção ativa baseada no scroll
+const activeSection = ref('sobre');
+const sections = ['sobre', 'experiencia', 'projetos'];
+const isLargeScreen = ref(false);
+
+const updateScreenSize = () => {
+  isLargeScreen.value = window.innerWidth >= 1024;
+};
+
+onMounted(() => {
+  updateScreenSize();
+  window.addEventListener('resize', updateScreenSize);
+
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px 0px -100% 0px',
+    threshold: 0
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    let found = false;
+    entries.forEach(entry => {
+      if (entry.isIntersecting && isLargeScreen.value) {
+        activeSection.value = entry.target.id;
+        found = true;
+      }
+    });
+    // Se nenhuma seção estiver intersectando e for tela grande, manter a última ativa ou setar a primeira
+    if (!found && isLargeScreen.value && activeSection.value === 'projetos') {
+      // Manter a última
+    } else if (!found && isLargeScreen.value) {
+      activeSection.value = 'sobre';
+    }
+  }, observerOptions);
+
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) observer.observe(el);
+  });
+});
+
+onUnmounted(() => {
+  window.removeEventListener('resize', updateScreenSize);
+  // O observer será automaticamente desconectado quando o componente for desmontado
+});
 </script>
 
 <template>
@@ -43,30 +89,30 @@ const hoveredProject = ref<number | null>(null);
 
           <nav aria-label="Navegação da página">
             <ul class="space-y-5 mt-10 lg:mt-15 font-semibold text-sm">
-              <li class="text-tertiary">
+              <li :class="isLargeScreen && activeSection === 'sobre' ? 'text-primary' : 'text-tertiary'">
                 <a href="#sobre" @click.prevent="scrollTo('sobre')"
                   class="inline-flex items-center space-x-3 group transition-colors duration-200">
                   <span
-                    class="inline-block h-[1px] w-10 bg-tertiary rounded transition-all duration-200 group-hover:w-15 group-hover:bg-primary"></span>
-                  <span class="transition-colors duration-200 group-hover:text-primary">SOBRE</span>
+                    :class="['inline-block h-[1px] rounded transition-all duration-200', isLargeScreen && activeSection === 'sobre' ? 'w-15 bg-primary' : 'w-10 bg-tertiary group-hover:w-15 group-hover:bg-primary']"></span>
+                  <span :class="['transition-colors duration-200', isLargeScreen && activeSection === 'sobre' ? 'text-primary' : 'text-tertiary group-hover:text-primary']">SOBRE</span>
                 </a>
               </li>
 
-              <li class="text-tertiary">
+              <li :class="isLargeScreen && activeSection === 'experiencia' ? 'text-primary' : 'text-tertiary'">
                 <a href="#experiencia" @click.prevent="scrollTo('experiencia')"
                   class="inline-flex items-center space-x-3 group transition-colors duration-200">
                   <span
-                    class="inline-block h-[1px] w-10 bg-tertiary rounded transition-all duration-200 group-hover:w-15 group-hover:bg-primary"></span>
-                  <span class="transition-colors duration-200 group-hover:text-primary">EXPERIÊNCIA</span>
+                    :class="['inline-block h-[1px] rounded transition-all duration-200', isLargeScreen && activeSection === 'experiencia' ? 'w-15 bg-primary' : 'w-10 bg-tertiary group-hover:w-15 group-hover:bg-primary']"></span>
+                  <span :class="['transition-colors duration-200', isLargeScreen && activeSection === 'experiencia' ? 'text-primary' : 'text-tertiary group-hover:text-primary']">EXPERIÊNCIA</span>
                 </a>
               </li>
 
-              <li class="text-tertiary">
+              <li :class="isLargeScreen && activeSection === 'projetos' ? 'text-primary' : 'text-tertiary'">
                 <a href="#projetos" @click.prevent="scrollTo('projetos')"
                   class="inline-flex items-center space-x-3 group transition-colors duration-200">
                   <span
-                    class="inline-block h-[1px] w-10 bg-tertiary rounded transition-all duration-200 group-hover:w-15 group-hover:bg-primary"></span>
-                  <span class="transition-colors duration-200 group-hover:text-primary">PROJETOS</span>
+                    :class="['inline-block h-[1px] rounded transition-all duration-200', isLargeScreen && activeSection === 'projetos' ? 'w-15 bg-primary' : 'w-10 bg-tertiary group-hover:w-15 group-hover:bg-primary']"></span>
+                  <span :class="['transition-colors duration-200', isLargeScreen && activeSection === 'projetos' ? 'text-primary' : 'text-tertiary group-hover:text-primary']">PROJETOS</span>
                 </a>
               </li>
             </ul>
