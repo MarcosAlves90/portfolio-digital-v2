@@ -51,7 +51,7 @@ const projectsBrute: Project[] = [
     {
         title: 'Coconut Links',
         description: 'Página de links pessoais estilo Linktree.',
-        link: 'https://marcosalves90.github.io/coconut_links',
+        link: 'https://links.marcospilgrim.com.br',
         imageSrc: 'https://res.cloudinary.com/dgsywmzb2/image/upload/v1756407127/coconut_links_jpd4u7.png',
         imageAlt: 'Screenshot da página de links pessoais estilo Linktree.',
         skills: ['React', 'CSS', 'JavaScript'],
