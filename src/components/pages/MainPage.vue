@@ -5,6 +5,7 @@ import MainPageLink from '@/components/atoms/MainPageLink.vue';
 import { useHead } from '@vueuse/head'
 import { experiences } from '@/data/experiences';
 import { projectsMainPage } from '@/data/projects';
+import { ref } from 'vue';
 
 useHead({
   title: 'Marcos Lopes',
@@ -21,6 +22,10 @@ const scrollTo = (id: string) => {
   const el = document.querySelector<HTMLElement>(`#${id}`);
   el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
+
+// hover state para aplicar opacidade nos irmãos quando houver hover em um card
+const hoveredExperience = ref<number | null>(null);
+const hoveredProject = ref<number | null>(null);
 </script>
 
 <template>
@@ -117,11 +122,20 @@ const scrollTo = (id: string) => {
           com domínio de tecnologias como JavaScript, Vue.js, React.js, Java, Python e metodologias ágeis.</p>
       </section>
 
-      <section id="experiencia" class="space-y-2 group" aria-labelledby="experiencia-heading">
+  <section id="experiencia" class="space-y-2" aria-labelledby="experiencia-heading">
         <h3 id="experiencia-heading" class="max-lg:uppercase lg:sr-only font-semibold pb-6">Experiência</h3>
         <div class="max-lg:space-y-10">
-          <article v-for="(experience, i) in experiences" :key="`${experience.title}-${i}`"
-            class="transition-opacity duration-200 opacity-100 lg:group-hover:opacity-70 lg:hover:opacity-100">
+          <article
+            v-for="(experience, i) in experiences"
+            :key="`${experience.title}-${i}`"
+            tabindex="0"
+            @mouseenter="hoveredExperience = i"
+            @mouseleave="hoveredExperience = null"
+            @focus="hoveredExperience = i"
+            @blur="hoveredExperience = null"
+            :class="['transition-opacity duration-200', hoveredExperience === null ? 'opacity-100' : (hoveredExperience === i ? 'opacity-100' : 'opacity-40')]
+            "
+          >
             <ExperienceCard :period="experience.period" :title="experience.title" :description="experience.description"
               :skills="experience.skills" :link="experience.link" />
           </article>
@@ -130,11 +144,20 @@ const scrollTo = (id: string) => {
 
       <MainPageLink />
 
-      <section id="projetos" class="space-y-2 group" aria-labelledby="projetos-heading">
+  <section id="projetos" class="space-y-2" aria-labelledby="projetos-heading">
         <h3 id="projetos-heading" class="max-lg:uppercase lg:sr-only font-semibold pb-6">Projetos</h3>
         <div class="max-lg:space-y-10">
-          <article v-for="(project, j) in projectsMainPage" :key="`${project.title}-${j}`"
-            class="transition-opacity duration-200 opacity-100 lg:group-hover:opacity-70 lg:hover:opacity-100">
+          <article
+            v-for="(project, j) in projectsMainPage"
+            :key="`${project.title}-${j}`"
+            tabindex="0"
+            @mouseenter="hoveredProject = j"
+            @mouseleave="hoveredProject = null"
+            @focus="hoveredProject = j"
+            @blur="hoveredProject = null"
+            :class="['transition-opacity duration-200', hoveredProject === null ? 'opacity-100' : (hoveredProject === j ? 'opacity-100' : 'opacity-40')]
+            "
+          >
             <ProjectCard :title="project.title" :description="project.description" :link="project.link"
               :imageSrc="project.imageSrc" :imageAlt="project.imageAlt" :skills="project.skills" />
           </article>
