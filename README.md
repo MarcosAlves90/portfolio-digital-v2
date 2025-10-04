@@ -12,7 +12,7 @@
 >
 > Site: [Portfolio](https://marcos-lopes-portfolio.vercel.app)
 
-### Adjustments and improvements
+## Adjustments and improvements
 
 The project is still under development and the next updates will focus on the following tasks:
 
