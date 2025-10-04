@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import ExperienceCard from '@/components/molecules/ExperienceCard.vue';
 import ProjectCard from '@/components/molecules/ProjectCard.vue';
-import MainPageLink from '@/components/atoms/MainPageLink.vue';
+import CommonLink from '@/components/atoms/CommonLink.vue';
 import { useHead } from '@vueuse/head'
 import { experiences } from '@/data/experiences';
 import { projectsMainPage } from '@/data/projects';
@@ -188,7 +188,13 @@ onUnmounted(() => {
         </div>
       </section>
 
-      <MainPageLink />
+      <CommonLink
+        href="https://res.cloudinary.com/dgsywmzb2/image/upload/v1755999385/curriculo-marcos_lopes.pdf"
+        label="Ver currículo completo"
+        aria-label="Abrir currículo completo em nova aba"
+        icon-position="right"
+        icon-class="bi bi-box-arrow-up-right"
+      />
 
   <section id="projetos" class="space-y-2" aria-labelledby="projetos-heading">
         <h3 id="projetos-heading" class="max-lg:uppercase lg:sr-only font-semibold pb-6">Projetos</h3>
@@ -210,7 +216,7 @@ onUnmounted(() => {
         </div>
       </section>
 
-      <MainPageLink to="/projetos" label="Ver todos os projetos" aria-label="Ver todos os projetos" />
+  <CommonLink to="/projetos" label="Ver todos os projetos" aria-label="Ver todos os projetos" icon-position="right" />
     </div>
   </main>
 </template>
