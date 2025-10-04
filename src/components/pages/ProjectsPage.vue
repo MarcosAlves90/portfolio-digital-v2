@@ -2,6 +2,7 @@
 import { useHead } from '@vueuse/head'
 import { ref, computed } from 'vue'
 import BackToTop from '@/components/atoms/BackToTop.vue'
+import CommonLink from '@/components/atoms/CommonLink.vue'
 import ProjectsTable from '@/components/organisms/ProjectsTable.vue'
 import { projectsReverseSorted } from '@/data/projects'
 
@@ -45,12 +46,15 @@ const formatLink = (link?: string) => {
     <div class="max-w-6xl w-full">
       <div class="space-y-2 sticky py-8 md:py-12 lg:py-16 top-0">
         <nav aria-label="Voltar para página inicial">
-          <router-link
+          <CommonLink
             to="/"
-            class="font-semibold cursor-pointer text-highlight hover:text-primary text-sm md:text-base"
-          >
-            ← Marcos Lopes
-          </router-link>
+            label="Marcos Lopes"
+            aria-label="Voltar para a página inicial"
+            icon-position="left"
+            icon-class="bi bi-arrow-left"
+            wrapper-class="mb-5"
+            link-class="font-semibold cursor-pointer group hover:text-highlight hover:underline transition-all duration-200 inline-flex items-center text-sm md:text-base"
+          />
         </nav>
         <h1 class="text-3xl md:text-4xl lg:text-5xl font-semibold">Todos os Projetos</h1>
       </div>
