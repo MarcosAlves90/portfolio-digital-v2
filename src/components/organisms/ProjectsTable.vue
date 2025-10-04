@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { Project } from '@/data/types'
-import { defineProps } from 'vue'
 
 const props = defineProps<{
     projects: Project[]
@@ -22,15 +21,7 @@ const props = defineProps<{
         <tbody>
             <tr v-for="(project, index) in projects" :key="`${project.title}-${project.year || 'na'}-${index}`">
                 <td class="text-tertiary">{{ project.year || 'N/A' }}</td>
-                <td class="font-semibold">
-                    <a v-if="project.link" :href="project.link" target="_blank" rel="noopener noreferrer"
-                        class="sm:hidden cursor-pointer text-highlight hover:text-primary">
-                        {{ project.title }}
-                    </a>
-                    <span v-else class="sm:hidden">{{ project.title }}</span>
-
-                    <span class="hidden sm:inline">{{ project.title }}</span>
-                </td>
+                <td class="font-semibold">{{ project.title }}</td>
                 <td class="text-tertiary hidden lg:table-cell">{{ project.company }}</td>
                 <td class="hidden lg:table-cell">
                     <ul class="flex flex-wrap gap-2 text-sm">
@@ -41,8 +32,9 @@ const props = defineProps<{
                 </td>
                 <td class="hidden sm:table-cell">
                     <a v-if="project.link" :href="project.link" target="_blank" rel="noopener noreferrer"
-                        class="cursor-pointer text-highlight hover:text-primary">
-                        {{ props.formatLink(project.link) }}
+                        class="inline-flex items-center group cursor-pointer text-highlight hover:text-primary">
+                        <span>{{ props.formatLink(project.link) }}</span>
+                        <i class="bi bi-box-arrow-up-right ml-2 group-hover:ml-4 group-focus:ml-4 transition-all duration-200" aria-hidden="true"></i>
                     </a>
                     <span v-else>N/A</span>
                 </td>
