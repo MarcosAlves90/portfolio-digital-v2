@@ -7,7 +7,7 @@ const projectsBrute: Project[] = [
         link: 'https://mediariconsultoria.com.br',
         imageSrc: 'https://res.cloudinary.com/dgsywmzb2/image/upload/v1755994599/mediari_zlzf1n.png',
         imageAlt: 'Screenshot da landing page da Mediari Consultoria',
-        skills: ['Nuxt', 'Tailwindcss', 'TypeScript'],
+        skills: ['Nuxt', 'Tailwindcss', 'TypeScript','Firebase','Cloudinary'],
         year: 2025,
         company: 'Mediari Consultoria'
     },
