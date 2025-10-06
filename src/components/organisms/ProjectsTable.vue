@@ -21,7 +21,27 @@ const props = defineProps<{
         <tbody>
             <tr v-for="(project, index) in projects" :key="`${project.title}-${project.year || 'na'}-${index}`">
                 <td class="text-tertiary">{{ project.year || 'N/A' }}</td>
-                <td class="font-semibold">{{ project.title }}</td>
+                <td class="font-semibold">
+                    <template v-if="project.link">
+                        <!-- Link visível apenas em telas pequenas (coluna de link está oculta) -->
+                        <a
+                            :href="project.link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex items-center group cursor-pointer text-highlight hover:text-primary sm:hidden"
+                            :aria-label="`Abrir ${project.title} (abre em nova aba)`"
+                        >
+                            <span>{{ project.title }}</span>
+                            <i class="bi bi-box-arrow-up-right ml-2 group-hover:ml-4 transition-all duration-200" aria-hidden="true"></i>
+                        </a>
+
+                        <!-- Texto puro (visível em sm+), para evitar duplicidade quando há link -->
+                        <span class="hidden sm:inline">{{ project.title }}</span>
+                    </template>
+                    <template v-else>
+                        <span>{{ project.title }}</span>
+                    </template>
+                </td>
                 <td class="text-tertiary hidden lg:table-cell">{{ project.company }}</td>
                 <td class="hidden lg:table-cell">
                     <ul class="flex flex-wrap gap-2 text-sm">
