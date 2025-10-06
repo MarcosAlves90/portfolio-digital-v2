@@ -32,7 +32,7 @@ const props = defineProps<{
                             :aria-label="`Abrir ${project.title} (abre em nova aba)`"
                         >
                             <span>{{ project.title }}</span>
-                            <i class="bi bi-box-arrow-up-right ml-2 group-hover:ml-4 transition-all duration-200" aria-hidden="true"></i>
+                            <i class="bi bi-box-arrow-up-right ml-2 transform transition-transform duration-200 group-hover:translate-x-2 group-focus:translate-x-2" aria-hidden="true"></i>
                         </a>
 
                         <!-- Texto puro (visível em sm+), para evitar duplicidade quando há link -->
@@ -54,7 +54,7 @@ const props = defineProps<{
                     <a v-if="project.link" :href="project.link" target="_blank" rel="noopener noreferrer"
                         class="inline-flex items-center group cursor-pointer text-highlight hover:text-primary">
                         <span>{{ props.formatLink(project.link) }}</span>
-                        <i class="bi bi-box-arrow-up-right ml-2 group-hover:ml-4 group-focus:ml-4 transition-all duration-200" aria-hidden="true"></i>
+                        <i class="bi bi-box-arrow-up-right ml-2 transform transition-transform duration-200 group-hover:translate-x-2 group-focus:translate-x-2" aria-hidden="true"></i>
                     </a>
                     <span v-else>N/A</span>
                 </td>
