@@ -153,6 +153,14 @@ onUnmounted(() => {
                 <i class="bi bi-linkedin text-lg" aria-hidden="true"></i>
               </a>
             </li>
+            
+            <li>
+              <a href="mailto:marcos.a.lopes7701@gmail.com" title="Enviar email"
+                class="w-10 h-10 flex items-center justify-center rounded-full bg-tertiary/10 text-secondary hover:bg-tertiary/20 hover:text-primary transition-colors">
+                <span class="sr-only">Email</span>
+                <i class="bi bi-envelope-fill text-lg" aria-hidden="true"></i>
+              </a>
+            </li>
           </ul>
         </nav>
       </header>
