@@ -2,6 +2,7 @@
 import ExperienceCard from '@/components/molecules/ExperienceCard.vue';
 import ProjectCard from '@/components/molecules/ProjectCard.vue';
 import CommonLink from '@/components/atoms/CommonLink.vue';
+import StickySectionBar from '@/components/atoms/StickySectionBar.vue';
 import { useHead } from '@vueuse/head'
 import { experiences } from '@/data/experiences';
 import { projectsMainPage } from '@/data/projects';
@@ -169,6 +170,7 @@ onUnmounted(() => {
     <!-- Conteúdo principal: seções semânticas -->
     <div class="space-y-8 lg:space-y-12 w-full py-8 lg:py-16">
       <section id="sobre" class="lg:px-4" aria-labelledby="sobre-heading">
+        <StickySectionBar section-id="sobre" label="Sobre" />
         <h3 id="sobre-heading" class="max-lg:uppercase lg:sr-only font-semibold pb-6">Sobre</h3>
         <p class="text-secondary">Profissional com experiência em desenvolvimento web, design gráfico e produção de
           conteúdo, atuando em projetos próprios, acadêmicos e freelances. Foco em soluções modernas, interfaces
@@ -177,7 +179,8 @@ onUnmounted(() => {
       </section>
 
   <section id="experiencia" class="space-y-2" aria-labelledby="experiencia-heading">
-        <h3 id="experiencia-heading" class="max-lg:uppercase lg:sr-only font-semibold pb-6">Experiência</h3>
+    <StickySectionBar section-id="experiencia" label="Experiência" />
+    <h3 id="experiencia-heading" class="max-lg:uppercase lg:sr-only font-semibold pb-6">Experiência</h3>
         <div class="max-lg:space-y-10">
           <article
             v-for="(experience, i) in experiences"
@@ -205,7 +208,8 @@ onUnmounted(() => {
       />
 
   <section id="projetos" class="space-y-2" aria-labelledby="projetos-heading">
-        <h3 id="projetos-heading" class="max-lg:uppercase lg:sr-only font-semibold pb-6">Projetos</h3>
+    <StickySectionBar section-id="projetos" label="Projetos" />
+    <h3 id="projetos-heading" class="max-lg:uppercase lg:sr-only font-semibold pb-6">Projetos</h3>
         <div class="max-lg:space-y-10">
           <article
             v-for="(project, j) in projectsMainPage"
