@@ -4,6 +4,7 @@ import CursorLight from "@/components/atoms/CursorLight.vue"
 
 <template>
   <div class="app-root">
+    <div className="grain"/>
     <CursorLight />
     <div class="content">
       <router-view />
