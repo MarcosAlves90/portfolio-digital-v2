@@ -94,7 +94,7 @@ onUnmounted(() => {
                 <a href="#sobre" @click.prevent="scrollTo('sobre')"
                   class="inline-flex items-center space-x-3 group transition-colors duration-200">
                   <span
-                    :class="['inline-block h-[1px] rounded transition-all duration-200', isLargeScreen && activeSection === 'sobre' ? 'w-15 bg-primary' : 'w-10 bg-tertiary group-hover:w-15 group-hover:bg-primary']"></span>
+                    :class="['inline-block h-px rounded transition-all duration-200', isLargeScreen && activeSection === 'sobre' ? 'w-15 bg-primary' : 'w-10 bg-tertiary group-hover:w-15 group-hover:bg-primary']"></span>
                   <span :class="['transition-colors duration-200', isLargeScreen && activeSection === 'sobre' ? 'text-primary' : 'text-tertiary group-hover:text-primary']">SOBRE</span>
                 </a>
               </li>
@@ -103,7 +103,7 @@ onUnmounted(() => {
                 <a href="#experiencia" @click.prevent="scrollTo('experiencia')"
                   class="inline-flex items-center space-x-3 group transition-colors duration-200">
                   <span
-                    :class="['inline-block h-[1px] rounded transition-all duration-200', isLargeScreen && activeSection === 'experiencia' ? 'w-15 bg-primary' : 'w-10 bg-tertiary group-hover:w-15 group-hover:bg-primary']"></span>
+                    :class="['inline-block h-px rounded transition-all duration-200', isLargeScreen && activeSection === 'experiencia' ? 'w-15 bg-primary' : 'w-10 bg-tertiary group-hover:w-15 group-hover:bg-primary']"></span>
                   <span :class="['transition-colors duration-200', isLargeScreen && activeSection === 'experiencia' ? 'text-primary' : 'text-tertiary group-hover:text-primary']">EXPERIÊNCIA</span>
                 </a>
               </li>
@@ -112,7 +112,7 @@ onUnmounted(() => {
                 <a href="#projetos" @click.prevent="scrollTo('projetos')"
                   class="inline-flex items-center space-x-3 group transition-colors duration-200">
                   <span
-                    :class="['inline-block h-[1px] rounded transition-all duration-200', isLargeScreen && activeSection === 'projetos' ? 'w-15 bg-primary' : 'w-10 bg-tertiary group-hover:w-15 group-hover:bg-primary']"></span>
+                    :class="['inline-block h-px rounded transition-all duration-200', isLargeScreen && activeSection === 'projetos' ? 'w-15 bg-primary' : 'w-10 bg-tertiary group-hover:w-15 group-hover:bg-primary']"></span>
                   <span :class="['transition-colors duration-200', isLargeScreen && activeSection === 'projetos' ? 'text-primary' : 'text-tertiary group-hover:text-primary']">PROJETOS</span>
                 </a>
               </li>
