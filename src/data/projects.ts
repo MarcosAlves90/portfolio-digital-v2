@@ -92,9 +92,18 @@ const projectsBrute: Project[] = [
         imageAlt: 'Screenshot da rede social e tabuleiro virtual para jogos de RPG Dicenders.',
         skills: ['Handlebars', 'JavaScript', 'CSS', 'Express.js', 'MongoDB', 'Socket.io'],
         year: 2023,
+    },
+    {
+        title: 'La Tazza',
+        description: 'Plataforma para comercialização de grãos, equipamentos e cursos voltados ao café.',
+        link: 'https://la-tazza.vercel.app',
+        imageSrc: 'https://res.cloudinary.com/dgsywmzb2/image/upload/v1761982544/la-tazza_seq6hm.png',
+        imageAlt: 'Screenshot da plataforma La Tazza.',
+        skills: ['Next.js', 'TypeScript', 'Tailwindcss', 'Firebase', 'Cloudinary'],
+        year: 2025,
     }
 ];
 
 export const projectsSorted = [...projectsBrute].sort((a, b) => a.year - b.year);
 export const projectsReverseSorted = [...projectsBrute].sort((a, b) => b.year - a.year);
-export const projectsMainPage = [...projectsReverseSorted].filter(project => ['Mediari Consultoria', 'Diário de Mariupol', 'Antônia Fernandes', 'MidNight'].includes(project.title));
+export const projectsMainPage = [...projectsReverseSorted].filter(project => ['Mediari Consultoria', 'Diário de Mariupol', 'La Tazza', 'MidNight'].includes(project.title));
