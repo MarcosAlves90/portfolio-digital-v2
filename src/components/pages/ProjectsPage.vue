@@ -1,42 +1,47 @@
 <script setup lang="ts">
-import { useHead } from '@vueuse/head'
-import { ref, computed } from 'vue'
-import BackToTop from '@/components/atoms/BackToTop.vue'
-import CommonLink from '@/components/atoms/CommonLink.vue'
-import ProjectsTable from '@/components/organisms/ProjectsTable.vue'
-import { projectsReverseSorted } from '@/data/projects'
+import { useHead } from "@vueuse/head";
+import { ref, computed } from "vue";
+import BackToTop from "@/components/atoms/BackToTop.vue";
+import CommonLink from "@/components/atoms/CommonLink.vue";
+import ProjectsTable from "@/components/organisms/ProjectsTable.vue";
+import { projectsReverseSorted } from "@/data/projects";
 
 useHead({
-  title: 'Projetos - Marcos Lopes',
+  title: "Projetos - Marcos Lopes",
   meta: [
     {
-      name: 'description',
-      content: 'Veja todos os projetos desenvolvidos por Marcos Lopes, incluindo detalhes sobre tecnologias utilizadas e links para os projetos.'
-    }
-  ]
-})
+      name: "description",
+      content:
+        "Veja todos os projetos desenvolvidos por Marcos Lopes, incluindo detalhes sobre tecnologias utilizadas e links para os projetos.",
+    },
+  ],
+});
 
-const searchTerm = ref('')
+const searchTerm = ref("");
 
 const filteredProjects = computed(() => {
   if (!searchTerm.value) {
-    return projectsReverseSorted
+    return projectsReverseSorted;
   }
 
-  const term = searchTerm.value.toLowerCase()
-  return projectsReverseSorted.filter(project =>
-    project.title.toLowerCase().includes(term) ||
-    project.description.toLowerCase().includes(term) ||
-    project.skills.some(skill => skill.toLowerCase().includes(term)) ||
-    (project.company && project.company.toLowerCase().includes(term))
-  )
-})
+  const term = searchTerm.value.toLowerCase();
+  return projectsReverseSorted.filter(
+    (project) =>
+      project.title.toLowerCase().includes(term) ||
+      project.description.toLowerCase().includes(term) ||
+      project.skills.some((skill) => skill.toLowerCase().includes(term)) ||
+      (project.company && project.company.toLowerCase().includes(term)),
+  );
+});
 
 // Formata a URL para exibição compacta (sem protocolo/host longo)
 const formatLink = (link?: string) => {
-  if (!link) return ''
-  return link.replace(/^https?:\/\//, '').replace(/^www\./, '').replace('marcosalves90.github.io/', '')
-}
+  if (!link) return "";
+  return link
+    .replace(/^https?:\/\//, "")
+    .replace(/^www\./, "")
+    .replace("marcosalves90.github.io/", "");
+};
 
 // Componente BackToTop lida com exibição e scroll
 </script>
@@ -56,7 +61,9 @@ const formatLink = (link?: string) => {
             link-class="font-semibold cursor-pointer group hover:text-highlight hover:underline transition-all duration-200 inline-flex items-center text-sm md:text-base"
           />
         </nav>
-        <h1 class="text-3xl md:text-4xl lg:text-5xl font-semibold">Todos os Projetos</h1>
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-semibold">
+          Todos os Projetos
+        </h1>
       </div>
     </div>
 
@@ -64,7 +71,10 @@ const formatLink = (link?: string) => {
       <div class="mb-8">
         <form role="search" class="relative" @submit.prevent>
           <label for="project-search" class="sr-only">Buscar projetos</label>
-          <i class="bi bi-search absolute left-3 top-1/2 transform -translate-y-1/2 text-secondary" aria-hidden="true"></i>
+          <i
+            class="bi bi-search absolute left-3 top-1/2 transform -translate-y-1/2 text-secondary"
+            aria-hidden="true"
+          ></i>
           <input
             id="project-search"
             v-model="searchTerm"
@@ -81,8 +91,7 @@ const formatLink = (link?: string) => {
       </div>
     </div>
 
-  <BackToTop />
-
+    <BackToTop />
   </main>
 </template>
 
@@ -91,6 +100,7 @@ table {
   width: 100%;
 }
 
-
-table { width: 100%; }
+table {
+  width: 100%;
+}
 </style>

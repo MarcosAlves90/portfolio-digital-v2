@@ -1,4 +1,4 @@
-@import './base.css';
+@import "./base.css";
 @import "tailwindcss";
 
 #app {
@@ -13,8 +13,8 @@
   --color-tertiary: var(--color-tertiary);
 
   --breakpoint-520: 520px;
-  --font-poppins: 'Poppins', sans-serif;
-  --font-gavency: 'Gavency', sans-serif;
+  --font-poppins: "Poppins", sans-serif;
+  --font-gavency: "Gavency", sans-serif;
 }
 
 :root {
