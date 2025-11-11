@@ -7,32 +7,40 @@
  * @returns URL com parâmetros de transformação do Cloudinary ou a URL original
  */
 export function optimizeCloudinaryUrl(
-    url: string,
-    options: { width?: number; quality?: number; dpr?: number; format?: string } = {}
+  url: string,
+  options: {
+    width?: number;
+    quality?: number;
+    dpr?: number;
+    format?: string;
+  } = {},
 ): string {
-    if (!url || !url.includes('res.cloudinary.com')) return url;
+  if (!url || !url.includes("res.cloudinary.com")) return url;
 
-    try {
-        const u = new URL(url);
-        const parts = u.pathname.split('/');
-        const uploadIndex = parts.findIndex((p) => p === 'upload');
-        if (uploadIndex === -1) return url;
+  try {
+    const u = new URL(url);
+    const parts = u.pathname.split("/");
+    const uploadIndex = parts.findIndex((p) => p === "upload");
+    if (uploadIndex === -1) return url;
 
-        const before = parts.slice(0, uploadIndex + 1).join('/');
-        const after = parts.slice(uploadIndex + 1).join('/');
+    const before = parts.slice(0, uploadIndex + 1).join("/");
+    const after = parts.slice(uploadIndex + 1).join("/");
 
-        const transformations: string[] = [];
-        if (options.width) transformations.push(`w_${options.width}`);
-        if (options.quality) transformations.push(`q_${options.quality}`);
-        if (options.dpr) transformations.push(`dpr_${options.dpr}`);
-        if (options.format) transformations.push(`f_${options.format}`);
-        if (!options.format) transformations.push('f_auto');
+    const transformations: string[] = [];
+    if (options.width) transformations.push(`w_${options.width}`);
+    if (options.quality) transformations.push(`q_${options.quality}`);
+    if (options.dpr) transformations.push(`dpr_${options.dpr}`);
+    if (options.format) transformations.push(`f_${options.format}`);
+    if (!options.format) transformations.push("f_auto");
 
-        const transformStr = transformations.join(',');
-        const optimizedPath = `${before}/${transformStr}/${after}`.replace(/\/+/g, '/');
+    const transformStr = transformations.join(",");
+    const optimizedPath = `${before}/${transformStr}/${after}`.replace(
+      /\/+/g,
+      "/",
+    );
 
-        return `${u.protocol}//${u.host}${optimizedPath}`;
-    } catch (e) {
-        return url;
-    }
+    return `${u.protocol}//${u.host}${optimizedPath}`;
+  } catch (e) {
+    return url;
+  }
 }
