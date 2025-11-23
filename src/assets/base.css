@@ -13,37 +13,6 @@
   box-sizing: border-box;
 }
 
-html,
-body {
-  background: var(--color-background);
-}
-
-body {
-  min-height: 100vh;
-  color: var(--color-text);
-  line-height: 1.6;
-  transition: background-color 0.2s ease-in-out;
-  font-family:
-    Inter,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    Oxygen,
-    Ubuntu,
-    Cantarell,
-    "Fira Sans",
-    "Droid Sans",
-    "Helvetica Neue",
-    "Poppins",
-    "Gavency",
-    sans-serif;
-  font-size: 15px;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 ::-webkit-scrollbar {
   width: 12px;
   height: 12px;
@@ -64,11 +33,6 @@ body {
   background-color: var(--color-background);
 }
 
-* {
-  scrollbar-width: thin;
-  scrollbar-color: var(--color-highlight) var(--color-text);
-}
-
 html {
   scroll-behavior: smooth;
 }
@@ -84,21 +48,21 @@ html {
   pointer-events: none;
   z-index: 300;
   transform: translateZ(0);
+}
 
-  &:before {
-    content: "";
-    top: -10rem;
-    left: -10rem;
-    width: calc(100% + 20rem);
-    height: calc(100% + 20rem);
-    z-index: 9999;
-    position: fixed;
-    background-image: url(https://upload.wikimedia.org/wikipedia/commons/5/5c/Image_gaussian_noise_example.png);
-    opacity: 0.1;
-    pointer-events: none;
-    -webkit-animation: noise 1s steps(2) infinite;
-    animation: noise 1s steps(2) infinite;
-  }
+.grain:before {
+  content: "";
+  top: -10rem;
+  left: -10rem;
+  width: calc(100% + 20rem);
+  height: calc(100% + 20rem);
+  z-index: 9999;
+  position: fixed;
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/5/5c/Image_gaussian_noise_example.png);
+  opacity: 0.1;
+  pointer-events: none;
+  -webkit-animation: noise 1s steps(2) infinite;
+  animation: noise 1s steps(2) infinite;
 }
 
 @-webkit-keyframes noise {

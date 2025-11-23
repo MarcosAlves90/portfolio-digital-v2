@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref, computed } from "vue";
+import { onMounted, onUnmounted, ref } from "vue";
 
 /**
  * CursorLight Component
@@ -41,13 +41,6 @@ let cursorState: CursorState = {
   target: { x: 0, y: 0 },
   animationId: null,
 };
-
-// Computed properties for responsive design
-const lightRadius = computed(() =>
-  window.innerWidth >= 640
-    ? CONFIG.LIGHT_RADIUS_DESKTOP
-    : CONFIG.LIGHT_RADIUS_MOBILE,
-);
 
 /**
  * Updates CSS custom properties for cursor position

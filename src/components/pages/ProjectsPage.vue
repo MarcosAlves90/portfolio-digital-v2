@@ -1,18 +1,36 @@
 <script setup lang="ts">
 import { useHead } from "@vueuse/head";
+import { useSEO, generateBreadcrumbSchema } from "@/composables/useSEO";
 import { ref, computed } from "vue";
 import BackToTop from "@/components/atoms/BackToTop.vue";
 import CommonLink from "@/components/atoms/CommonLink.vue";
 import ProjectsTable from "@/components/organisms/ProjectsTable.vue";
 import { projectsReverseSorted } from "@/data/projects";
 
+useSEO({
+  title: "Todos os Projetos",
+  description:
+    "Veja todos os projetos desenvolvidos por Marcos Lopes, incluindo detalhes sobre tecnologias utilizadas e links para os projetos.",
+  canonicalPath: "/projetos",
+});
+
+// Adiciona breadcrumb schema
 useHead({
-  title: "Projetos - Marcos Lopes",
-  meta: [
+  script: [
     {
-      name: "description",
-      content:
-        "Veja todos os projetos desenvolvidos por Marcos Lopes, incluindo detalhes sobre tecnologias utilizadas e links para os projetos.",
+      type: "application/ld+json",
+      innerHTML: JSON.stringify(
+        generateBreadcrumbSchema([
+          {
+            name: "Home",
+            url: "https://marcospilgrim.com.br/",
+          },
+          {
+            name: "Projetos",
+            url: "https://marcospilgrim.com.br/projetos",
+          },
+        ])
+      ),
     },
   ],
 });

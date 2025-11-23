@@ -41,6 +41,7 @@ export function optimizeCloudinaryUrl(
 
     return `${u.protocol}//${u.host}${optimizedPath}`;
   } catch (e) {
+    console.warn("optimizeCloudinaryUrl: Failed to optimize URL", e);
     return url;
   }
 }

@@ -5,17 +5,35 @@ import CommonLink from "@/components/atoms/CommonLink.vue";
 import StickySectionBar from "@/components/atoms/StickySectionBar.vue";
 import SocialLinks from "@/components/atoms/SocialLinks.vue";
 import { useHead } from "@vueuse/head";
+import { useSEO, generatePersonSchema, generateBreadcrumbSchema } from "@/composables/useSEO";
 import { experiences } from "@/data/experiences";
 import { projectsMainPage } from "@/data/projects";
 import { ref, onMounted, onUnmounted } from "vue";
 
+useSEO({
+  title: "Desenvolvedor Full Stack, Designer Gráfico e Escritor",
+  description:
+    "Marcos Lopes é um desenvolvedor full-stack, designer gráfico e escritor. Explore sua experiência, projetos e habilidades em desenvolvimento web.",
+  canonicalPath: "/",
+});
+
+// Adiciona structured data
 useHead({
-  title: "Marcos Lopes",
-  meta: [
+  script: [
     {
-      name: "description",
-      content:
-        "Marcos Lopes é um desenvolvedor full-stack, designer gráfico e escritor. Explore sua experiência, projetos e habilidades em desenvolvimento web.",
+      type: "application/ld+json",
+      innerHTML: JSON.stringify(generatePersonSchema()),
+    },
+    {
+      type: "application/ld+json",
+      innerHTML: JSON.stringify(
+          generateBreadcrumbSchema([
+          {
+            name: "Home",
+            url: "https://marcospilgrim.com.br/",
+          },
+        ])
+      ),
     },
   ],
 });
