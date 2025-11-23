@@ -69,7 +69,7 @@ withDefaults(
           class="w-full sm:w-10 h-10 flex items-center justify-center rounded sm:rounded-full bg-tertiary/10 text-secondary hover:bg-tertiary/20 hover:text-primary transition-colors"
         >
           <span class="sr-only">{{ link.label }}</span>
-          <i :class="`bi ${link.icon} text-lg`" aria-hidden="true"></i>
+          <i :class="`bi ${link.icon} text-lg`" aria-hidden="true" />
         </a>
       </li>
     </ul>

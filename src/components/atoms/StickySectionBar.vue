@@ -65,10 +65,10 @@ onUnmounted(() => {
     <div class="max-w-6xl mx-auto">
       <button
         type="button"
-        @click="scrollToSection"
         :aria-label="ariaLabel"
         :aria-controls="sectionId"
         class="w-full h-13 flex items-center gap-3 bg-background/20 text-highlight font-semibold px-6 md:px-12 border-b-2 border-highlight/30 hover:bg-background/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-highlight focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+        @click="scrollToSection"
       >
         <span class="uppercase text-sm tracking-wide" aria-hidden="true">{{
           label

@@ -92,7 +92,7 @@ const formatLink = (link?: string) => {
           <i
             class="bi bi-search absolute left-3 top-1/2 transform -translate-y-1/2 text-secondary"
             aria-hidden="true"
-          ></i>
+          />
           <input
             id="project-search"
             v-model="searchTerm"
@@ -100,12 +100,12 @@ const formatLink = (link?: string) => {
             placeholder="Buscar projetos por nome, descrição, tecnologia ou empresa..."
             class="w-full pl-10 pr-4 py-3 bg-transparent border border-tertiary rounded-lg text-primary placeholder-secondary focus:outline-none focus:border-highlight focus:ring-1 focus:ring-highlight transition-colors duration-200"
             aria-label="Buscar projetos"
-          />
+          >
         </form>
       </div>
 
       <div class="space-y-12">
-        <ProjectsTable :projects="filteredProjects" :formatLink="formatLink" />
+        <ProjectsTable :projects="filteredProjects" :format-link="formatLink" />
       </div>
     </div>
 

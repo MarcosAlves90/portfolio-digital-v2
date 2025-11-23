@@ -106,7 +106,9 @@ onUnmounted(() => {
         class="space-y-2 py-12 lg:py-16 lg:sticky lg:top-0 flex flex-col lg:h-screen justify-between"
       >
         <div class="space-y-3 max-lg:mb-10">
-          <h1 class="text-3xl lg:text-5xl font-semibold">Marcos Lopes</h1>
+          <h1 class="text-3xl lg:text-5xl font-semibold">
+            Marcos Lopes
+          </h1>
           <h2 class="text-lg lg:text-xl font-medium">
             Desenvolvedor Full Stack
           </h2>
@@ -126,8 +128,8 @@ onUnmounted(() => {
               >
                 <a
                   href="#sobre"
-                  @click.prevent="scrollTo('sobre')"
                   class="inline-flex items-center space-x-3 group transition-colors duration-200"
+                  @click.prevent="scrollTo('sobre')"
                 >
                   <span
                     :class="[
@@ -136,7 +138,7 @@ onUnmounted(() => {
                         ? 'w-15 bg-primary'
                         : 'w-10 bg-tertiary group-hover:w-15 group-hover:bg-primary',
                     ]"
-                  ></span>
+                  />
                   <span
                     :class="[
                       'transition-colors duration-200',
@@ -144,8 +146,7 @@ onUnmounted(() => {
                         ? 'text-primary'
                         : 'text-tertiary group-hover:text-primary',
                     ]"
-                    >SOBRE</span
-                  >
+                  >SOBRE</span>
                 </a>
               </li>
 
@@ -158,8 +159,8 @@ onUnmounted(() => {
               >
                 <a
                   href="#experiencia"
-                  @click.prevent="scrollTo('experiencia')"
                   class="inline-flex items-center space-x-3 group transition-colors duration-200"
+                  @click.prevent="scrollTo('experiencia')"
                 >
                   <span
                     :class="[
@@ -168,7 +169,7 @@ onUnmounted(() => {
                         ? 'w-15 bg-primary'
                         : 'w-10 bg-tertiary group-hover:w-15 group-hover:bg-primary',
                     ]"
-                  ></span>
+                  />
                   <span
                     :class="[
                       'transition-colors duration-200',
@@ -176,8 +177,7 @@ onUnmounted(() => {
                         ? 'text-primary'
                         : 'text-tertiary group-hover:text-primary',
                     ]"
-                    >EXPERIÊNCIA</span
-                  >
+                  >EXPERIÊNCIA</span>
                 </a>
               </li>
 
@@ -190,8 +190,8 @@ onUnmounted(() => {
               >
                 <a
                   href="#projetos"
-                  @click.prevent="scrollTo('projetos')"
                   class="inline-flex items-center space-x-3 group transition-colors duration-200"
+                  @click.prevent="scrollTo('projetos')"
                 >
                   <span
                     :class="[
@@ -200,7 +200,7 @@ onUnmounted(() => {
                         ? 'w-15 bg-primary'
                         : 'w-10 bg-tertiary group-hover:w-15 group-hover:bg-primary',
                     ]"
-                  ></span>
+                  />
                   <span
                     :class="[
                       'transition-colors duration-200',
@@ -208,8 +208,7 @@ onUnmounted(() => {
                         ? 'text-primary'
                         : 'text-tertiary group-hover:text-primary',
                     ]"
-                    >PROJETOS</span
-                  >
+                  >PROJETOS</span>
                 </a>
               </li>
             </ul>
@@ -257,10 +256,6 @@ onUnmounted(() => {
             v-for="(experience, i) in experiences"
             :key="`${experience.title}-${i}`"
             tabindex="0"
-            @mouseenter="hoveredExperience = i"
-            @mouseleave="hoveredExperience = null"
-            @focus="hoveredExperience = i"
-            @blur="hoveredExperience = null"
             :class="[
               'transition-opacity duration-200',
               hoveredExperience === null
@@ -269,6 +264,10 @@ onUnmounted(() => {
                   ? 'opacity-100'
                   : 'opacity-40',
             ]"
+            @mouseenter="hoveredExperience = i"
+            @mouseleave="hoveredExperience = null"
+            @focus="hoveredExperience = i"
+            @blur="hoveredExperience = null"
           >
             <ExperienceCard
               :period="experience.period"
@@ -306,10 +305,6 @@ onUnmounted(() => {
             v-for="(project, j) in projectsMainPage"
             :key="`${project.title}-${j}`"
             tabindex="0"
-            @mouseenter="hoveredProject = j"
-            @mouseleave="hoveredProject = null"
-            @focus="hoveredProject = j"
-            @blur="hoveredProject = null"
             :class="[
               'transition-opacity duration-200',
               hoveredProject === null
@@ -318,13 +313,17 @@ onUnmounted(() => {
                   ? 'opacity-100'
                   : 'opacity-40',
             ]"
+            @mouseenter="hoveredProject = j"
+            @mouseleave="hoveredProject = null"
+            @focus="hoveredProject = j"
+            @blur="hoveredProject = null"
           >
             <ProjectCard
               :title="project.title"
               :description="project.description"
               :link="project.link"
-              :imageSrc="project.imageSrc"
-              :imageAlt="project.imageAlt"
+              :image-src="project.imageSrc"
+              :image-alt="project.imageAlt"
               :skills="project.skills"
             />
           </article>
