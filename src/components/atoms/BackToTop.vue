@@ -23,11 +23,11 @@ const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
   <transition name="back-to-top" appear>
     <button
       v-if="show"
-      @click="scrollToTop"
       aria-label="Voltar ao topo"
       class="fixed z-50 right-4 bottom-6 sm:right-6 sm:bottom-8 w-12 h-12 flex items-center justify-center rounded-full bg-tertiary/10 text-secondary hover:bg-tertiary/20 hover:text-primary transition-colors shadow-lg focus:outline-none"
+      @click="scrollToTop"
     >
-      <i class="bi bi-arrow-up text-lg" aria-hidden="true"></i>
+      <i class="bi bi-arrow-up text-lg" aria-hidden="true" />
     </button>
   </transition>
 </template>

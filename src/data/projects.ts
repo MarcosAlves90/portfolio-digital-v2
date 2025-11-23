@@ -35,7 +35,7 @@ const projectsBrute: Project[] = [
   },
   {
     title: "Diário de Mariupol",
-    description: 'Landing page para o livro \"Diário de Mariupol\"',
+    description: 'Landing page para o livro "Diário de Mariupol"',
     link: "https://diario-de-mariupol.vercel.app",
     imageSrc:
       "https://res.cloudinary.com/dgsywmzb2/image/upload/v1755998702/diario-de-mariupol_jal1g7.png",

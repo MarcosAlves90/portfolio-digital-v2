@@ -44,13 +44,13 @@ const computedIconClass = computed(() => {
         v-if="props.iconPosition === 'left'"
         :class="computedIconClass"
         aria-hidden="true"
-      ></i>
+      />
       <span :class="props.textClass">{{ props.label }}</span>
       <i
         v-if="props.iconPosition === 'right'"
         :class="computedIconClass"
         aria-hidden="true"
-      ></i>
+      />
     </router-link>
 
     <a
@@ -65,13 +65,13 @@ const computedIconClass = computed(() => {
         v-if="props.iconPosition === 'left'"
         :class="computedIconClass"
         aria-hidden="true"
-      ></i>
+      />
       <span :class="props.textClass">{{ props.label }}</span>
       <i
         v-if="props.iconPosition === 'right'"
         :class="computedIconClass"
         aria-hidden="true"
-      ></i>
+      />
     </a>
   </p>
 </template>

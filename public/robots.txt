@@ -1,0 +1,11 @@
+# Robots.txt para marcospilgrim.com.br
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+
+# Direciona para o sitemap
+Sitemap: https://marcospilgrim.com.br/sitemap.xml
+
+# Outras configurações de crawling
+Crawl-delay: 0

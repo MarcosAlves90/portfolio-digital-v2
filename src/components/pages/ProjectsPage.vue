@@ -1,18 +1,36 @@
 <script setup lang="ts">
 import { useHead } from "@vueuse/head";
+import { useSEO, generateBreadcrumbSchema } from "@/composables/useSEO";
 import { ref, computed } from "vue";
 import BackToTop from "@/components/atoms/BackToTop.vue";
 import CommonLink from "@/components/atoms/CommonLink.vue";
 import ProjectsTable from "@/components/organisms/ProjectsTable.vue";
 import { projectsReverseSorted } from "@/data/projects";
 
+useSEO({
+  title: "Todos os Projetos",
+  description:
+    "Veja todos os projetos desenvolvidos por Marcos Lopes, incluindo detalhes sobre tecnologias utilizadas e links para os projetos.",
+  canonicalPath: "/projetos",
+});
+
+// Adiciona breadcrumb schema
 useHead({
-  title: "Projetos - Marcos Lopes",
-  meta: [
+  script: [
     {
-      name: "description",
-      content:
-        "Veja todos os projetos desenvolvidos por Marcos Lopes, incluindo detalhes sobre tecnologias utilizadas e links para os projetos.",
+      type: "application/ld+json",
+      innerHTML: JSON.stringify(
+        generateBreadcrumbSchema([
+          {
+            name: "Home",
+            url: "https://marcospilgrim.com.br/",
+          },
+          {
+            name: "Projetos",
+            url: "https://marcospilgrim.com.br/projetos",
+          },
+        ])
+      ),
     },
   ],
 });
@@ -74,7 +92,7 @@ const formatLink = (link?: string) => {
           <i
             class="bi bi-search absolute left-3 top-1/2 transform -translate-y-1/2 text-secondary"
             aria-hidden="true"
-          ></i>
+          />
           <input
             id="project-search"
             v-model="searchTerm"
@@ -82,12 +100,12 @@ const formatLink = (link?: string) => {
             placeholder="Buscar projetos por nome, descrição, tecnologia ou empresa..."
             class="w-full pl-10 pr-4 py-3 bg-transparent border border-tertiary rounded-lg text-primary placeholder-secondary focus:outline-none focus:border-highlight focus:ring-1 focus:ring-highlight transition-colors duration-200"
             aria-label="Buscar projetos"
-          />
+          >
         </form>
       </div>
 
       <div class="space-y-12">
-        <ProjectsTable :projects="filteredProjects" :formatLink="formatLink" />
+        <ProjectsTable :projects="filteredProjects" :format-link="formatLink" />
       </div>
     </div>
 
