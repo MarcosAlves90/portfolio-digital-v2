@@ -1,0 +1,26 @@
+{
+    "name": "Marcos Lopes - Portfólio Digital",
+    "short_name": "Portfólio",
+    "description": "Portfólio digital de Marcos Lopes, desenvolvedor full-stack, designer gráfico e escritor. Conheça meus principais projetos, habilidades e experiências profissionais.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#070c1d",
+    "theme_color": "#070c1d",
+    "icons": [
+        {
+            "src": "/favicon.svg",
+            "sizes": "any",
+            "type": "image/svg+xml"
+        },
+        {
+            "src": "/favicon.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/favicon.ico",
+            "sizes": "16x16 32x32",
+            "type": "image/x-icon"
+        }
+    ]
+}
