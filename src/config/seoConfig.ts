@@ -36,6 +36,11 @@ export const seoConfig = {
     "typescript",
     "frontend",
     "backend",
+    "Marcos Pilgrim",
+    "criação de sites",
+    "desenvolvimento web",
+    "web design",
+    "sites personalizados",
   ],
   pages: {
     home: {
