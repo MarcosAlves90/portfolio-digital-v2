@@ -1,5 +1,6 @@
 import { useHead } from "@vueuse/head";
 import { useRouter } from "vue-router";
+import { seoConfig } from "@/config/seoConfig";
 
 interface SEOConfig {
   title: string;
@@ -30,6 +31,10 @@ export function useSEO(config: SEOConfig) {
       {
         name: "description",
         content: config.description,
+      },
+      {
+        name: "keywords",
+        content: seoConfig.keywords.join(", "),
       },
       {
         name: "theme-color",
