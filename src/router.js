@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import MainPage from "@/components/pages/MainPage.vue";
 import ProjectsPage from "@/components/pages/ProjectsPage.vue";
+import ServicesPage from "@/components/pages/ServicesPage.vue";
 
 const routes = [
   {
@@ -21,6 +22,16 @@ const routes = [
       title: "Todos os Projetos",
       description:
         "Veja todos os projetos desenvolvidos por Marcos Lopes, incluindo detalhes sobre tecnologias utilizadas e links para os projetos.",
+    },
+  },
+  {
+    path: "/servicos",
+    name: "Services",
+    component: ServicesPage,
+    meta: {
+      title: "Serviços e Preços",
+      description:
+        "Confira os serviços de desenvolvimento web, aplicativos e software oferecidos por Marcos Lopes.",
     },
   },
 ];
