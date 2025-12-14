@@ -5,7 +5,7 @@ import CommonLink from "@/components/atoms/CommonLink.vue";
 import StickySectionBar from "@/components/atoms/StickySectionBar.vue";
 import SocialLinks from "@/components/atoms/SocialLinks.vue";
 import { useHead } from "@vueuse/head";
-import { useSEO, generatePersonSchema, generateBreadcrumbSchema } from "@/composables/useSEO";
+import { useSEO, generatePersonSchema, generateBreadcrumbSchema, generateProjectSchema } from "@/composables/useSEO";
 import { experiences } from "@/data/experiences";
 import { projectsMainPage } from "@/data/projects";
 import { ref, onMounted, onUnmounted } from "vue";
@@ -35,6 +35,16 @@ useHead({
         ])
       ),
     },
+    ...projectsMainPage.map(project => ({
+      type: "application/ld+json",
+      innerHTML: JSON.stringify(generateProjectSchema(
+        project.title,
+        project.description,
+        project.imageSrc,
+        project.link,
+        project.skills
+      )),
+    })),
   ],
 });
 
