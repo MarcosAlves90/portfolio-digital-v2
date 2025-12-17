@@ -5,9 +5,11 @@ import CommonLink from "@/components/atoms/CommonLink.vue";
 import StickySectionBar from "@/components/atoms/StickySectionBar.vue";
 import SocialLinks from "@/components/atoms/SocialLinks.vue";
 import { useHead } from "@vueuse/head";
-import { useSEO, generatePersonSchema, generateBreadcrumbSchema } from "@/composables/useSEO";
+import { RouterLink } from 'vue-router';
+import { useSEO, generatePersonSchema, generateBreadcrumbSchema, generateProjectSchema } from "@/composables/useSEO";
 import { experiences } from "@/data/experiences";
 import { projectsMainPage } from "@/data/projects";
+import { serviceCategories } from "@/data/services";
 import { ref, onMounted, onUnmounted } from "vue";
 
 useSEO({
@@ -35,6 +37,16 @@ useHead({
         ])
       ),
     },
+    ...projectsMainPage.map(project => ({
+      type: "application/ld+json",
+      innerHTML: JSON.stringify(generateProjectSchema(
+        project.title,
+        project.description,
+        project.imageSrc,
+        project.link,
+        project.skills
+      )),
+    })),
   ],
 });
 
@@ -47,10 +59,24 @@ const scrollTo = (id: string) => {
 // hover state para aplicar opacidade nos irmãos quando houver hover em um card
 const hoveredExperience = ref<number | null>(null);
 const hoveredProject = ref<number | null>(null);
+const hoveredService = ref<number | null>(null);
 
 // Estado para a seção ativa baseada no scroll
 const activeSection = ref("sobre");
-const sections = ["sobre", "experiencia", "projetos"];
+const sections = ["sobre", "experiencia", "projetos", "servicos-preview"];
+
+// Preview com as primeiras categorias de serviços
+const servicesPreview = serviceCategories.slice(0, 3);
+
+// Função simples para gerar âncoras (remove acentos e caracteres inválidos)
+const slug = (s: string) =>
+  s
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/[^\w-]/g, "");
+
 const isLargeScreen = ref(false);
 
 const updateScreenSize = () => {
@@ -211,6 +237,37 @@ onUnmounted(() => {
                   >PROJETOS</span>
                 </a>
               </li>
+
+              <li
+                :class="
+                  isLargeScreen && activeSection === 'servicos-preview'
+                    ? 'text-primary'
+                    : 'text-tertiary'
+                "
+              >
+                <a
+                  href="#servicos-preview"
+                  class="inline-flex items-center space-x-3 group transition-colors duration-200"
+                  @click.prevent="scrollTo('servicos-preview')"
+                >
+                  <span
+                    :class="[
+                      'inline-block h-px rounded transition-all duration-200',
+                      isLargeScreen && activeSection === 'servicos-preview'
+                        ? 'w-15 bg-primary'
+                        : 'w-10 bg-tertiary group-hover:w-15 group-hover:bg-primary',
+                    ]"
+                  />
+                  <span
+                    :class="[
+                      'transition-colors duration-200',
+                      isLargeScreen && activeSection === 'servicos-preview'
+                        ? 'text-primary'
+                        : 'text-tertiary group-hover:text-primary',
+                    ]"
+                  >SERVIÇOS</span>
+                </a>
+              </li>
             </ul>
           </nav>
         </div>
@@ -334,6 +391,47 @@ onUnmounted(() => {
         to="/projetos"
         label="Ver todos os projetos"
         aria-label="Ver todos os projetos"
+        icon-position="right"
+      />
+
+      <section id="servicos-preview" class="space-y-4 lg:space-y-6">
+        <StickySectionBar section-id="servicos-preview" label="Serviços" />
+        <div class="grid grid-cols-1 gap-4">
+          <RouterLink
+            v-for="(cat, idx) in servicesPreview"
+            :key="`service-${idx}`"
+            :to="{ path: '/servicos', hash: '#' + slug(cat.title) }"
+            :class="[
+              'block no-underline transition-opacity duration-200',
+              hoveredService === null ? 'opacity-100' : hoveredService === idx ? 'opacity-100' : 'opacity-40'
+            ]"
+            tabindex="0"
+            @mouseenter="hoveredService = idx"
+            @mouseleave="hoveredService = null"
+            @focus="hoveredService = idx"
+            @blur="hoveredService = null"
+          >
+            <article class="p-4 bg-highlight/5 rounded-lg border border-highlight/10 hover:shadow-xl hover:-translate-y-1 transition-all duration-200">
+              <div class="flex items-start space-x-3">
+                <i :class="['bi text-2xl text-highlight', cat.icon]" aria-hidden="true" />
+                <div>
+                  <h4 class="font-semibold text-primary">
+                    {{ cat.title }}
+                  </h4>
+                  <p class="text-secondary text-sm mt-1">
+                    {{ cat.description }}
+                  </p>
+                </div>
+              </div>
+            </article>
+          </RouterLink>
+        </div>
+      </section>
+
+      <CommonLink
+        to="/servicos"
+        label="Ver todos os serviços"
+        aria-label="Ver todos os serviços"
         icon-position="right"
       />
     </div>

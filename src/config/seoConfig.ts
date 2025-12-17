@@ -41,6 +41,27 @@ export const seoConfig = {
     "desenvolvimento web",
     "web design",
     "sites personalizados",
+    "freelance",
+    "TI",
+    "Dev",
+    "FullStack",
+    "Node.js",
+    "Python",
+    "Java",
+    "Laravel",
+    "Next.js",
+    "Nuxt.js",
+    "Tailwind CSS",
+    "Firebase",
+    "PostgreSQL",
+    "MongoDB",
+    "Docker",
+    "Figma",
+    "Photoshop",
+    "Illustrator",
+    "Spring Boot",
+    "Express.js",
+    "Socket.io",
   ],
   pages: {
     home: {
@@ -54,6 +75,12 @@ export const seoConfig = {
       description:
         "Veja todos os projetos desenvolvidos por Marcos Lopes, incluindo detalhes sobre tecnologias utilizadas e links para os projetos.",
       path: "/projetos",
+    },
+    services: {
+      title: "Serviços e Preços",
+      description:
+        "Confira os serviços de desenvolvimento web, aplicativos e software oferecidos por Marcos Lopes. Soluções personalizadas com preços competitivos.",
+      path: "/servicos",
     },
   },
 };

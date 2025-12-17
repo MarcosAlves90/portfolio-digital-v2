@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useHead } from "@vueuse/head";
-import { useSEO, generateBreadcrumbSchema } from "@/composables/useSEO";
+import { useSEO, generateBreadcrumbSchema, generateProjectSchema } from "@/composables/useSEO";
 import { ref, computed } from "vue";
 import BackToTop from "@/components/atoms/BackToTop.vue";
 import CommonLink from "@/components/atoms/CommonLink.vue";
@@ -32,6 +32,16 @@ useHead({
         ])
       ),
     },
+    ...projectsReverseSorted.map(project => ({
+      type: "application/ld+json",
+      innerHTML: JSON.stringify(generateProjectSchema(
+        project.title,
+        project.description,
+        project.imageSrc,
+        project.link,
+        project.skills
+      )),
+    })),
   ],
 });
 
