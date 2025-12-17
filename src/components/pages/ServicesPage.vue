@@ -48,6 +48,15 @@ const filteredCategories = computed(() => {
     );
   });
 });
+
+// Helper para âncoras (remove acentos e caracteres inválidos)
+const slug = (s: string) =>
+  s
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/[^\w-]/g, '');
 </script>
 
 <template>
@@ -94,6 +103,7 @@ const filteredCategories = computed(() => {
 
         <section
           v-for="(category, cIndex) in filteredCategories"
+          :id="slug(category.title)"
           :key="cIndex"
           class="space-y-8"
         >
