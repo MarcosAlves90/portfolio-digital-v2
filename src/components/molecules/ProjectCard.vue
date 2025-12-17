@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { optimizeCloudinaryUrl } from "@/utils/cloudinary";
+import { optimizeCloudinaryUrl, generateCloudinarySrcSet } from "@/utils/cloudinary";
 import CardBase from "@/components/templates/CardBase.vue";
 
 const props = defineProps<{
@@ -12,12 +12,24 @@ const props = defineProps<{
   link?: string;
 }>();
 
-const optimizedSrc = computed(() => {
+const src = computed(() => {
   if (!props.imageSrc) return props.imageSrc;
   return optimizeCloudinaryUrl(props.imageSrc, {
     width: 800,
-    quality: 60,
-    dpr: 1,
+    quality: 'auto:good',
+    dpr: 'auto',
+    crop: 'fill',
+    gravity: 'auto',
+  });
+});
+
+const srcset = computed(() => {
+  if (!props.imageSrc) return "";
+  return generateCloudinarySrcSet(props.imageSrc, [320, 480, 640, 800, 1024, 1280], {
+    quality: 'auto:good',
+    dpr: 'auto',
+    crop: 'fill',
+    gravity: 'auto',
   });
 });
 </script>
@@ -26,12 +38,14 @@ const optimizedSrc = computed(() => {
   <CardBase :link="props.link" :reverse="true">
     <template #leading>
       <div
-        class="w-38 aspect-[16/9] overflow-hidden rounded flex-shrink-0 bg-muted border-2 border-tertiary"
+        class="w-38 aspect-video overflow-hidden rounded shrink-0 bg-muted border-2 border-tertiary"
         role="img"
         :aria-label="props.imageAlt ?? props.title"
       >
         <img
-          :src="optimizedSrc"
+          :src="src"
+          :srcset="srcset"
+          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
           :alt="props.imageAlt ?? props.title"
           loading="lazy"
           decoding="async"
