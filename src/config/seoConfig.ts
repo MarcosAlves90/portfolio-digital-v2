@@ -76,5 +76,11 @@ export const seoConfig = {
         "Veja todos os projetos desenvolvidos por Marcos Lopes, incluindo detalhes sobre tecnologias utilizadas e links para os projetos.",
       path: "/projetos",
     },
+    services: {
+      title: "Serviços e Preços",
+      description:
+        "Confira os serviços de desenvolvimento web, aplicativos e software oferecidos por Marcos Lopes. Soluções personalizadas com preços competitivos.",
+      path: "/servicos",
+    },
   },
 };
