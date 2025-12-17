@@ -66,7 +66,7 @@ export const serviceCategories: ServiceCategory[] = [
       {
         name: "MVP (Produto Mínimo Viável)",
         description: "Valide sua ideia de startup rápido e com baixo custo.",
-        price: "Sob Consulta",
+        price: "R$ 2.000",
         features: [
           "Funcionalidades Core do Produto",
           "Design Focado em Usabilidade",
@@ -78,7 +78,7 @@ export const serviceCategories: ServiceCategory[] = [
       {
         name: "App Growth",
         description: "Para apps prontos para escalar e conquistar o mercado.",
-        price: "Sob Consulta",
+        price: "R$ 5.000",
         recommended: true,
         features: [
           "iOS e Android (Lojas Oficiais)",
@@ -91,7 +91,7 @@ export const serviceCategories: ServiceCategory[] = [
       {
         name: "Enterprise / Super App",
         description: "Ecossistemas complexos com múltiplas integrações e IA.",
-        price: "Sob Consulta",
+        price: "R$ 10.000",
         features: [
           "Arquitetura de Microsserviços",
           "Integrações Complexas (APIs Bancárias, etc)",
@@ -110,7 +110,7 @@ export const serviceCategories: ServiceCategory[] = [
       {
         name: "Automação Desktop",
         description: "Scripts e programas para tarefas repetitivas locais.",
-        price: "Sob Consulta",
+        price: "R$ 500",
         features: [
           "Automação de Planilhas e Relatórios",
           "Web Scraping (Coleta de Dados)",
@@ -122,7 +122,7 @@ export const serviceCategories: ServiceCategory[] = [
       {
         name: "Sistema de Gestão (SaaS)",
         description: "Centralize a operação da sua empresa na nuvem.",
-        price: "Sob Consulta",
+        price: "R$ 1.500",
         recommended: true,
         features: [
           "Acesso via Navegador (Qualquer lugar)",
@@ -135,7 +135,7 @@ export const serviceCategories: ServiceCategory[] = [
       {
         name: "Solução Enterprise",
         description: "Software robusto para grandes operações e alta demanda.",
-        price: "Sob Consulta",
+        price: "R$ 5.500",
         features: [
           "Alta Disponibilidade e Escalabilidade",
           "Auditoria e Logs Detalhados",
@@ -166,7 +166,7 @@ export const serviceCategories: ServiceCategory[] = [
       {
         name: "Pacote Mensal (Básico)",
         description: "Garanta prioridade e monitoramento constante.",
-        price: "Sob Consulta",
+        price: "R$ 300 / mês",
         recommended: true,
         features: [
           "Monitoramento de Uptime",
@@ -179,7 +179,7 @@ export const serviceCategories: ServiceCategory[] = [
       {
         name: "Sustentação Full",
         description: "Sua equipe de TI terceirizada.",
-        price: "Sob Consulta",
+        price: "R$ 1.000 / mês",
         features: [
           "Suporte Prioritário (WhatsApp)",
           "Backups Diários",
