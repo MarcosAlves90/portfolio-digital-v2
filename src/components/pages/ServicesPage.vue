@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useHead } from "@vueuse/head";
 import { useSEO, generateBreadcrumbSchema } from "@/composables/useSEO";
+import { ref, computed } from "vue";
 import CommonLink from "@/components/atoms/CommonLink.vue";
 import { serviceCategories } from "@/data/services";
 
@@ -31,6 +32,22 @@ useHead({
     },
   ],
 });
+
+const searchTerm = ref("");
+
+const filteredCategories = computed(() => {
+  if (!searchTerm.value) return serviceCategories;
+  const term = searchTerm.value.toLowerCase();
+  return serviceCategories.filter((category) => {
+    if (category.title.toLowerCase().includes(term)) return true;
+    if (category.description.toLowerCase().includes(term)) return true;
+    return category.tiers.some((tier) =>
+      tier.name.toLowerCase().includes(term) ||
+      tier.description.toLowerCase().includes(term) ||
+      tier.features.some((f) => f.toLowerCase().includes(term))
+    );
+  });
+});
 </script>
 
 <template>
@@ -55,9 +72,28 @@ useHead({
     </div>
 
     <div class="max-w-6xl w-full pb-8 md:pb-10">
+      <div class="mb-8">
+        <form role="search" class="relative" @submit.prevent>
+          <label for="service-search" class="sr-only">Buscar serviços</label>
+          <i class="bi bi-search absolute left-3 top-1/2 transform -translate-y-1/2 text-secondary" aria-hidden="true" />
+          <input
+            id="service-search"
+            v-model="searchTerm"
+            type="search"
+            placeholder="Buscar serviços por categoria, nome, descrição ou recurso..."
+            class="w-full pl-10 pr-4 py-3 bg-transparent border border-tertiary rounded-lg text-primary placeholder-secondary focus:outline-none focus:border-highlight focus:ring-1 focus:ring-highlight transition-colors duration-200"
+            aria-label="Buscar serviços"
+          >
+        </form>
+      </div>
+
       <div class="space-y-20 pb-20">
+        <section v-if="filteredCategories.length === 0" class="py-12 text-center text-tertiary">
+          Nenhum serviço corresponde à sua busca.
+        </section>
+
         <section
-          v-for="(category, cIndex) in serviceCategories"
+          v-for="(category, cIndex) in filteredCategories"
           :key="cIndex"
           class="space-y-8"
         >
