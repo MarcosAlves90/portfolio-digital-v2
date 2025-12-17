@@ -221,18 +221,6 @@ onUnmounted(() => {
                   >PROJETOS</span>
                 </a>
               </li>
-
-              <li class="text-tertiary">
-                <router-link
-                  to="/servicos"
-                  class="inline-flex items-center space-x-3 group transition-colors duration-200"
-                >
-                  <span
-                    class="inline-block h-px rounded transition-all duration-200 w-10 bg-tertiary group-hover:w-15 group-hover:bg-primary"
-                  />
-                  <span class="text-tertiary group-hover:text-primary transition-colors duration-200">SERVIÇOS</span>
-                </router-link>
-              </li>
             </ul>
           </nav>
         </div>
@@ -356,6 +344,12 @@ onUnmounted(() => {
         to="/projetos"
         label="Ver todos os projetos"
         aria-label="Ver todos os projetos"
+        icon-position="right"
+      />
+      <CommonLink
+        to="/servicos"
+        label="Ver todos os serviços"
+        aria-label="Ver todos os serviços"
         icon-position="right"
       />
     </div>
