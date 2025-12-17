@@ -154,7 +154,9 @@ const slug = (s: string) =>
               </ul>
 
               <a
-                :href="`mailto:contato@marcospilgrim.com.br?subject=Orçamento: ${category.title} - ${tier.name}`"
+                :href="`https://wa.me/5511949273886?text=${encodeURIComponent(`Olá, gostaria de solicitar um orçamento para: ${category.title} - ${tier.name}`)}`"
+                target="_blank"
+                rel="noopener noreferrer"
                 class="w-full inline-flex items-center justify-center px-6 py-3 border text-sm font-medium rounded-lg transition-colors duration-200"
                 :class="[
                   tier.recommended
